@@ -601,6 +601,11 @@ body{
     transform: translateX(-260px);
   }
 
+  .category-container ul{
+    max-height: 85%;
+    overflow-y: auto;
+  }
+
   .problem-cards-container {
     width: 100%;
   }
