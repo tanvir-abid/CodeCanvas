@@ -1,0 +1,795 @@
+[
+  {
+    "problem": "Write a JavaScript function that calculates the factorial of a given number.",
+    "category": "basic",
+    "solution": "// Define a function named factorial with parameter num\nfunction factorial(num) {    \n  // Base case: If num is 0 or 1, return 1\n  if (num === 0 || num === 1) {\n    return 1;\n  } else {\n    // Recursive case: Return num multiplied by factorial of (num - 1)\n    return num * factorial(num - 1);\n  }\n}\n\n// Log the result of calling factorial with different numeric inputs to the console\nconsole.log(factorial(5));\nconsole.log(factorial(7));\nconsole.log(factorial(10));"
+  },
+  {
+    "problem": "Write a JavaScript function that checks whether a given number is prime or not.",
+    "category": "basic",
+    "solution": "// Define a function named isPrime with parameter num\nfunction isPrime(num) {\n  // Base cases: If num is less than 2, it's not prime\n  if (num < 2) {\n    return false;\n  }\n  // Iterate from 2 to the square root of num\n  for (let i = 2; i <= Math.sqrt(num); i++) {\n    // If num is divisible by any number other than 1 and itself, it's not prime\n    if (num % i === 0) {\n      return false;\n    }\n  }\n  // If no divisors found, num is prime\n  return true;\n}\n\n// Log the result of calling isPrime with different numeric inputs to the console\nconsole.log(isPrime(17));\nconsole.log(isPrime(20));\nconsole.log(isPrime(29));"
+  },
+  {
+    "problem": "Write a JavaScript function that sorts an array of numbers in ascending order.",
+    "category": "basic",
+    "solution": "// Define a function named sortNumbers with parameter arr\nfunction sortNumbers(arr) {\n  // Use the sort method to sort the array in ascending order\n  arr.sort(function(a, b) {\n    return a - b;\n  });\n  // Return the sorted array\n  return arr;\n}\n\n// Log the result of calling sortNumbers with different arrays to the console\nconsole.log(sortNumbers([5, 2, 7, 1, 9]));\nconsole.log(sortNumbers([10, 3, 8, 6, 2]));\nconsole.log(sortNumbers([23, 15, 9, 4, 17]));"
+  },
+  {
+    "problem": "Write a JavaScript function that handles errors when parsing JSON data.",
+    "category": "error handling",
+    "solution": "// Define a function named parseJSON with parameter jsonString\nfunction parseJSON(jsonString) {\n  try {\n    // Attempt to parse the JSON string\n    const parsedData = JSON.parse(jsonString);\n    // Return the parsed data\n    return parsedData;\n  } catch (error) {\n    // Handle any errors that occur during parsing\n    console.error('Error parsing JSON:', error);\n    // Return null or an appropriate default value\n    return null;\n  }\n}\n\n// Test the parseJSON function with different JSON strings\nconsole.log(parseJSON('{ \"name\": \"John\", \"age\": 30 }'));\nconsole.log(parseJSON('{ \"name\": \"Jane\", \"age\": }'));"
+  },
+  {
+    "problem": "Write a JavaScript function that handles errors when dividing numbers.",
+    "category": "error handling",
+    "solution": "// Define a function named divideNumbers with parameters dividend and divisor\nfunction divideNumbers(dividend, divisor) {\n  try {\n    // Attempt division\n    const result = dividend / divisor;\n    // Check for NaN or Infinity\n    if (!isFinite(result)) {\n      throw new Error('Division result is not finite');\n    }\n    // Return the result\n    return result;\n  } catch (error) {\n    // Handle division errors\n    console.error('Error dividing numbers:', error.message);\n    // Return null or an appropriate default value\n    return null;\n  }\n}\n\n// Test the divideNumbers function with different inputs\nconsole.log(divideNumbers(10, 0));\nconsole.log(divideNumbers(20, 4));"
+  },
+  {
+    "problem": "Write a JavaScript function that finds the maximum element in an array of numbers.",
+    "category": "Array",
+    "solution": "// Define a function named findMaxElement with parameter arr\nfunction findMaxElement(arr) {\n  if (arr.length === 0) {\n    return null; // Handle empty array\n  }\n  let max = arr[0];\n  for (let i = 1; i < arr.length; i++) {\n    if (arr[i] > max) {\n      max = arr[i];\n    }\n  }\n  return max;\n}\n\n// Test the findMaxElement function with different arrays\nconsole.log(findMaxElement([5, 2, 9, 1, 7]));\nconsole.log(findMaxElement([-3, -8, -2, -11]));"
+  },
+  {
+    "problem": "Write a JavaScript function that removes duplicate elements from an array.",
+    "category": "Array",
+    "solution": "// Define a function named removeDuplicates with parameter arr\nfunction removeDuplicates(arr) {\n  return arr.filter((value, index) => arr.indexOf(value) === index);\n}\n\n// Test the removeDuplicates function with different arrays\nconsole.log(removeDuplicates([1, 2, 3, 3, 4, 5, 5]));\nconsole.log(removeDuplicates(['apple', 'banana', 'orange', 'banana', 'kiwi']));"
+  },
+
+  {
+    "problem": "Write a JavaScript program to calculate the factorial of a number. In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example, 5! = 5 x 4 x 3 x 2 x 1 = 120",
+    "category": "basic",
+    "solution": "// Define a function named factorial with parameter num\nfunction factorial(num) {    \n  // Base case: If num is 0 or 1, return 1\n  if (num === 0 || num === 1) {\n    return 1;\n  } else {\n    // Recursive case: Return num multiplied by factorial of (num - 1)\n    return num * factorial(num - 1);\n  }\n}\n\n// Log the result of calling factorial with different numeric inputs to the console\nconsole.log(factorial(5));\nconsole.log(factorial(7));\nconsole.log(factorial(10));"
+  },
+  {
+    "problem": "Write a JavaScript program to find the greatest common divisor (GCD) of two positive numbers using recursion.",
+    "category": "recursion",
+    "solution": "// Define a function named gcd with parameters a and b\nfunction gcd(a, b) {\n  // Base case: If b is 0, return a (GCD found)\n  if (b === 0) {\n    return a;\n  } else {\n    // Recursive case: Call gcd recursively with b and remainder of a divided by b\n    return gcd(b, a % b);\n  }\n}\n\n// Log the result of calling gcd with different numeric inputs to the console\nconsole.log(gcd(12, 18));\nconsole.log(gcd(24, 36));\nconsole.log(gcd(49, 14));"
+  },
+  {
+    "problem": "Write a JavaScript program to get integers in the range (x, y) using recursion.",
+    "category": "recursion",
+    "solution": "// Define a function named range with parameters x and y\nfunction range(x, y) {\n  // Base case: If difference between x and y is less than or equal to 1, return an empty array\n  if (y - x <= 1) {\n    return [];\n  } else {\n    // Recursive case: Return an array with x incremented by 1, concatenated with range of (x+1, y)\n    return [x + 1].concat(range(x + 1, y));\n  }\n}\n\n// Log the result of calling range with different numeric inputs to the console\nconsole.log(range(2, 9));\nconsole.log(range(5, 12));\nconsole.log(range(10, 15));"
+  },
+  {
+    "problem": "Write a JavaScript program to compute the sum of an array of integers.",
+    "category": "recursion",
+    "solution": "// Define a function named sumArray with parameter arr\nfunction sumArray(arr) {\n  // Base case: If array length is 0, return 0 (sum is 0)\n  if (arr.length === 0) {\n    return 0;\n  } else {\n    // Recursive case: Return first element of array plus sum of rest of the array\n    return arr[0] + sumArray(arr.slice(1));\n  }\n}\n\n// Test array\nvar array = [1, 2, 3, 4, 5, 6];\n\n// Log the result of calling sumArray with the test array to the console\nconsole.log(sumArray(array));"
+  },
+  {
+    "problem": "Write a JavaScript program to compute the exponent of a number. Note : The exponent of a number says how many times the base number is used as a factor. 82 = 8 x 8 = 64. Here 8 is the base and 2 is the exponent.",
+    "category": "recursion",
+    "solution": "// Define a function named exponent with parameters base and exp\nfunction exponent(base, exp) {\n  // Base case: If exp is 0, return 1 (any number to the power of 0 is 1)\n  if (exp === 0) {\n    return 1;\n  } else {\n    // Recursive case: Return base multiplied by exponent of (base, exp - 1)\n    return base * exponent(base, exp - 1);\n  }\n}\n\n// Log the result of calling exponent with different numeric inputs to the console\nconsole.log(exponent(2, 3));\nconsole.log(exponent(5, 2));\nconsole.log(exponent(10, 4));"
+  },
+
+  {
+    "problem": "Write a JavaScript program to get the first n Fibonacci numbers.",
+    "category": "recursion",
+    "solution": "// Define a function named fibonacci with parameter n\nfunction fibonacci(n) {\n  if (n <= 0) {\n    return [];\n  } else if (n === 1) {\n    return [0];\n  } else if (n === 2) {\n    return [0, 1];\n  } else {\n    var fibSeries = [0, 1];\n    for (var i = 2; i < n; i++) {\n      fibSeries.push(fibSeries[i - 1] + fibSeries[i - 2]);\n    }\n    return fibSeries;\n  }\n}\n\n// Log the result of calling fibonacci with different numeric inputs to the console\nconsole.log(fibonacci(5));\nconsole.log(fibonacci(10));\nconsole.log(fibonacci(15));"
+  },
+  {
+    "problem": "Write a JavaScript program to check whether a number is even or not.",
+    "category": "recursion",
+    "solution": "// Define a function named isEven with parameter num\nfunction isEven(num) {\n  if (num === 0) {\n    return true;\n  } else if (num === 1) {\n    return false;\n  } else {\n    return isEven(num - 2);\n  }\n}\n\n// Log the result of calling isEven with different numeric inputs to the console\nconsole.log(isEven(6));\nconsole.log(isEven(11));\nconsole.log(isEven(24));"
+  },
+  {
+    "problem": "Write a JavaScript program for binary search.",
+    "category": "search",
+    "solution": "// Define a binarySearch method on Array.prototype\nArray.prototype.binarySearch = function(target) {\n  var min = 0;\n  var max = this.length - 1;\n  var mid;\n\n  while (min <= max) {\n    mid = Math.floor((min + max) / 2);\n    if (this[mid] === target) {\n      return mid;\n    } else if (this[mid] < target) {\n      min = mid + 1;\n    } else {\n      max = mid - 1;\n    }\n  }\n\n  return -1; // Target not found\n};\n\n// Test binary search with a sample array\nvar sampleArray = [0, 1, 2, 3, 4, 5, 6];\nconsole.log(sampleArray.binarySearch(5));"
+  },
+  {
+    "problem": "Write a merge sort program in JavaScript.",
+    "category": "Sorts",
+    "solution": "// Define a function named mergeSort with parameter arr\nfunction mergeSort(arr) {\n  if (arr.length <= 1) {\n    return arr;\n  }\n\n  var mid = Math.floor(arr.length / 2);\n  var left = arr.slice(0, mid);\n  var right = arr.slice(mid);\n\n  function merge(left, right) {\n    var result = [];\n    var leftIndex = 0;\n    var rightIndex = 0;\n\n    while (leftIndex < left.length && rightIndex < right.length) {\n      if (left[leftIndex] < right[rightIndex]) {\n        result.push(left[leftIndex]);\n        leftIndex++;\n      } else {\n        result.push(right[rightIndex]);\n        rightIndex++;\n      }\n    }\n\n    return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));\n  }\n\n  return merge(mergeSort(left), mergeSort(right));\n}\n\n// Test merge sort with a sample array\nvar sampleArray = [34, 7, 23, 32, 5, 62];\nconsole.log(mergeSort(sampleArray));"
+  },
+  {
+    "problem": "Write a JavaScript program to check whether a given string is a palindrome or not using recursion.",
+    "category": "recursion",
+    "solution": "// Define a function named isPalindrome with parameter str\nfunction isPalindrome(str) {\n  str = str.toLowerCase().replace(/[^a-z0-9]/g, ''); // Remove non-alphanumeric characters\n\n  if (str.length <= 1) {\n    return true; // Base case: Single character or empty string is a palindrome\n  }\n\n  if (str[0] === str[str.length - 1]) {\n    // Recursive case: Check substring excluding first and last characters\n    return isPalindrome(str.slice(1, str.length - 1));\n  }\n\n  return false; // Not a palindrome\n}\n\n// Test palindrome function with different strings\nconsole.log(isPalindrome('madam'));\nconsole.log(isPalindrome('abdb'));\nconsole.log(isPalindrome('ab'));\nconsole.log(isPalindrome('racecar'));\nconsole.log(isPalindrome('A man, a plan, a canal - Panama'))"
+  },
+  {
+    "problem": "Write a JavaScript program to convert binary number (positive) to decimal number using recursion.",
+    "category": "recursion",
+    "solution": "// Define a function named binaryToDecimal with parameter binaryStr\nfunction binaryToDecimal(binaryStr) {\n  if (!/^[01]+$/.test(binaryStr)) {\n    return 'Invalid binary input';\n  }\n\n  if (binaryStr.length === 1) {\n    return parseInt(binaryStr, 2);\n  }\n\n  var mostSignificantBit = parseInt(binaryStr[0], 2);\n  var restBits = binaryStr.slice(1);\n\n  return mostSignificantBit * Math.pow(2, restBits.length) + binaryToDecimal(restBits);\n}\n\n// Test binaryToDecimal function with different binary strings\nconsole.log(binaryToDecimal('1010'));\nconsole.log(binaryToDecimal('11011'));\nconsole.log(binaryToDecimal('100100'));"
+  },
+  {
+    "problem": "Write a JavaScript program to search for a given integer in an array of sorted integers using the Binary Search Algorithm and recursion.",
+    "category": "search",
+    "solution": "// Define a binarySearchRecursive function with parameters arr, target, start, and end\nfunction binarySearchRecursive(arr, target, start, end) {\n  if (start > end) {\n    return -1; // Target not found\n  }\n\n  var mid = Math.floor((start + end) / 2);\n\n  if (arr[mid] === target) {\n    return mid; // Target found\n  } else if (arr[mid] < target) {\n    return binarySearchRecursive(arr, target, mid + 1, end); // Search right half\n  } else {\n    return binarySearchRecursive(arr, target, start, mid - 1); // Search left half\n  }\n}\n\n// Test binarySearchRecursive function with sorted array and target\nvar sortedArray = [1, 2, 3, 5, 6, 7, 10, 11, 14, 15, 17, 19, 20, 22, 23];\nconsole.log(binarySearchRecursive(sortedArray, 6, 0, sortedArray.length - 1));\nconsole.log(binarySearchRecursive(sortedArray, 16, 0, sortedArray.length - 1));"
+  },
+  {
+    "problem": "A string consists of digits ranging from 2 to 9, inclusive. Write a JavaScript program to get all possible letter combinations that represent the number using recursion.",
+    "category": "recursion",
+    "solution": "// Define a function named letterCombinations with parameter digits\nfunction letterCombinations(digits) {\n  var phoneMap = {\n    '2': 'abc',\n    '3': 'def',\n    '4': 'ghi',\n    '5': 'jkl',\n    '6': 'mno',\n    '7': 'pqrs',\n    '8': 'tuv',\n    '9': 'wxyz'\n  };\n\n  function backtrack(index, path, result) {\n    if (index === digits.length) {\n      result.push(path);\n      return;\n    }\n\n    var letters = phoneMap[digits[index]];\n    for (var letter of letters) {\n      backtrack(index + 1, path + letter, result);\n    }\n  }\n\n  var result = [];\n  if (digits.length !== 0) {\n    backtrack(0, '', result);\n  }\n\n  return result;\n}\n\n// Test letterCombinations function with different digit strings\nconsole.log(letterCombinations('23'));\nconsole.log(letterCombinations('9'));\nconsole.log(letterCombinations('')); // Empty input"
+  },
+
+  {
+    "problem": "Write a JavaScript function that takes a callback and invokes it after a delay of 2 seconds.",
+    "category": "asynchronous",
+    "solution": "// Define a function named delayedCallback\nfunction delayedCallback(callback) {\n  setTimeout(callback, 2000); // Invoke callback after 2 seconds (2000ms)\n}\n\n// Example usage\nfunction myCallback() {\n  console.log('Callback invoked after 2 seconds');\n}\n\ndelayedCallback(myCallback);"
+  },
+  {
+    "problem": "Write a JavaScript program that converts a callback-based function to a Promise-based function.",
+    "category": "asynchronous",
+    "solution": "// Define a callback-based function\nfunction callbackBasedFunction(param, callback) {\n  // Perform asynchronous operation\n  setTimeout(() => {\n    const result = param * 2;\n    callback(null, result); // Invoke callback with result\n  }, 1000); // Simulate async operation taking 1 second\n}\n\n// Convert callback-based function to Promise-based function\nfunction promiseBasedFunction(param) {\n  return new Promise((resolve, reject) => {\n    callbackBasedFunction(param, (err, result) => {\n      if (err) {\n        reject(err);\n      } else {\n        resolve(result);\n      }\n    });\n  });\n}\n\n// Example usage\npromiseBasedFunction(5)\n  .then(result => console.log('Promise resolved with result:', result))\n  .catch(err => console.error('Promise rejected with error:', err));"
+  },
+  {
+    "problem": "Write a JavaScript function that makes an HTTP GET request and returns a Promise that resolves with the response data.",
+    "category": "asynchronous",
+    "solution": "// Define a function to make HTTP GET request\nfunction fetchData(url) {\n  return new Promise((resolve, reject) => {\n    const xhr = new XMLHttpRequest();\n    xhr.open('GET', url);\n    xhr.onload = () => {\n      if (xhr.status === 200) {\n        resolve(xhr.responseText);\n      } else {\n        reject(new Error('Failed to fetch data'));\n      }\n    };\n    xhr.onerror = () => {\n      reject(new Error('Network error'));\n    };\n    xhr.send();\n  });\n}\n\n// Example usage\nfetchData('https://jsonplaceholder.typicode.com/posts/1')\n  .then(data => console.log('Response data:', data))\n  .catch(err => console.error('Error:', err));"
+  },
+  {
+    "problem": "Write a JavaScript function that takes an array of URLs and downloads the contents of each URL in parallel using Promises.",
+    "category": "asynchronous",
+    "solution": "// Define a function to download contents of URLs in parallel\nfunction downloadURLsParallel(urls) {\n  const promises = urls.map(url => {\n    return new Promise((resolve, reject) => {\n      const xhr = new XMLHttpRequest();\n      xhr.open('GET', url);\n      xhr.onload = () => {\n        if (xhr.status === 200) {\n          resolve(xhr.responseText);\n        } else {\n          reject(new Error(`Failed to fetch data from ${url}`));\n        }\n      };\n      xhr.onerror = () => {\n        reject(new Error('Network error'));\n      };\n      xhr.send();\n    });\n  });\n\n  return Promise.all(promises);\n}\n\n// Example usage\nconst urls = ['https://jsonplaceholder.typicode.com/posts/1', 'https://jsonplaceholder.typicode.com/posts/2'];\ndownloadURLsParallel(urls)\n  .then(dataArray => console.log('Downloaded data:', dataArray))\n  .catch(err => console.error('Error:', err));"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a function that performs a series of asynchronous operations in sequence using Promises and 'async/await'.",
+    "category": "asynchronous",
+    "solution": "// Define an asynchronous function to perform operations in sequence\nasync function performAsyncOperations() {\n  try {\n    const result1 = await promiseOperation1();\n    console.log('Operation 1 completed:', result1);\n\n    const result2 = await promiseOperation2();\n    console.log('Operation 2 completed:', result2);\n\n    const result3 = await promiseOperation3();\n    console.log('Operation 3 completed:', result3);\n\n    // Continue with more operations...\n  } catch (err) {\n    console.error('Error:', err);\n  }\n}\n\n// Example usage\nperformAsyncOperations();"
+  },
+
+  {
+    "problem": "Write a JavaScript function that fetches data from multiple APIs concurrently and returns a combined result using Promises and 'Promise.all()'.",
+    "category": "asynchronous",
+    "solution": "// Define a function named fetchMultipleAPIs with an array of API URLs\nfunction fetchMultipleAPIs(apiUrls) {\n  // Create an array to hold individual fetch promises\n  const fetchPromises = apiUrls.map(url => fetch(url));\n\n  // Use Promise.all to wait for all fetches to complete\n  return Promise.all(fetchPromises)\n    .then(responses => Promise.all(responses.map(response => response.json())))\n    .then(data => data)\n    .catch(error => {\n      console.error('Error fetching data:', error);\n      return [];\n    });\n}\n\n// Example usage:\nconst urls = ['https://api.example.com/data1', 'https://api.example.com/data2'];\nfetchMultipleAPIs(urls)\n  .then(combinedData => console.log('Combined data:', combinedData))\n  .catch(err => console.error('Error:', err));"
+  },
+  {
+    "problem": "Write a JavaScript function that fetches data from an API and retries the request a specified number of times if it fails.",
+    "category": "asynchronous",
+    "solution": "// Define a function named fetchDataWithRetry with parameters url and retries\nfunction fetchDataWithRetry(url, retries) {\n  return new Promise((resolve, reject) => {\n    function fetchData() {\n      fetch(url)\n        .then(response => {\n          if (!response.ok) {\n            throw new Error('Network response was not ok');\n          }\n          return response.json();\n        })\n        .then(data => resolve(data))\n        .catch(error => {\n          if (retries > 0) {\n            console.log(`Retrying ${retries} more times...`);\n            retries--;\n            setTimeout(fetchData, 1000); // Retry after 1 second\n          } else {\n            reject(error);\n          }\n        });\n    }\n\n    fetchData();\n  });\n}\n\n// Example usage:\nconst apiUrl = 'https://api.example.com/data';\nconst maxRetries = 3;\nfetchDataWithRetry(apiUrl, maxRetries)\n  .then(data => console.log('Data:', data))\n  .catch(err => console.error('Error:', err));"
+  },
+  {
+    "problem": "Write a JavaScript program to implement a function that executes a given function repeatedly at a fixed interval using 'setInterval()'.",
+    "category": "asynchronous",
+    "solution": "// Define a function named repeatFunction with parameters func and interval\nfunction repeatFunction(func, interval) {\n  const intervalId = setInterval(func, interval);\n\n  // Return a function to clear the interval\n  return function stopInterval() {\n    clearInterval(intervalId);\n  };\n}\n\n// Example usage:\nfunction printMessage() {\n  console.log('Hello, world!');\n}\n\nconst stopInterval = repeatFunction(printMessage, 2000); // Print message every 2 seconds\n\n// Uncomment the line below to stop the interval after 10 seconds\n// setTimeout(stopInterval, 10000);"
+  },
+  {
+    "problem": "Write a JavaScript function that fetches data from an API and cancels the request if it takes longer than a specified time.",
+    "category": "asynchronous",
+    "solution": "// Define a function named fetchDataWithTimeout with parameters url and timeout\nfunction fetchDataWithTimeout(url, timeout) {\n  return new Promise((resolve, reject) => {\n    const controller = new AbortController();\n    const signal = controller.signal;\n\n    setTimeout(() => {\n      controller.abort(); // Abort the fetch request after timeout\n      reject(new Error('Request timed out')); // Reject with timeout error\n    }, timeout);\n\n    fetch(url, { signal })\n      .then(response => {\n        if (!response.ok) {\n          throw new Error('Network response was not ok');\n        }\n        return response.json();\n      })\n      .then(data => resolve(data))\n      .catch(error => reject(error));\n  });\n}\n\n// Example usage:\nconst apiUrl = 'https://api.example.com/data';\nconst requestTimeout = 5000; // 5 seconds\nfetchDataWithTimeout(apiUrl, requestTimeout)\n  .then(data => console.log('Data:', data))\n  .catch(err => console.error('Error:', err.message));"
+  },
+
+  {
+    "problem": "Write a JavaScript program to create a class called 'Person' with properties for name, age, and country. Include a method to display the person's details. Create two instances of the 'Person' class and display their details.",
+    "category": "OOP",
+    "solution": "// Define the Person class\nclass Person {\n  constructor(name, age, country) {\n    this.name = name;\n    this.age = age;\n    this.country = country;\n  }\n\n  displayDetails() {\n    console.log(`Name: ${this.name}, Age: ${this.age}, Country: ${this.country}`);\n  }\n}\n\n// Create instances of the Person class\nconst person1 = new Person('Alice', 30, 'USA');\nconst person2 = new Person('Bob', 25, 'Canada');\n\n// Display details of the persons\nperson1.displayDetails();\nperson2.displayDetails();"
+  },
+  {
+    "problem": "Write a JavaScript program to create a class called 'Rectangle' with properties for width and height. Include two methods to calculate rectangle area and perimeter. Create an instance of the 'Rectangle' class and calculate its area and perimeter.",
+    "category": "OOP",
+    "solution": "// Define the Rectangle class\nclass Rectangle {\n  constructor(width, height) {\n    this.width = width;\n    this.height = height;\n  }\n\n  calculateArea() {\n    return this.width * this.height;\n  }\n\n  calculatePerimeter() {\n    return 2 * (this.width + this.height);\n  }\n}\n\n// Create an instance of the Rectangle class\nconst rectangle = new Rectangle(5, 10);\n\n// Calculate and display area and perimeter of the rectangle\nconsole.log('Area:', rectangle.calculateArea());\nconsole.log('Perimeter:', rectangle.calculatePerimeter());"
+  },
+  {
+    "problem": "Write a JavaScript program that creates a class called 'Vehicle' with properties for make, model, and year. Include a method to display vehicle details. Create a subclass called 'Car' that inherits from the 'Vehicle' class and includes an additional property for the number of doors. Override the display method to include the number of doors.",
+    "category": "OOP",
+    "solution": "// Define the Vehicle class\nclass Vehicle {\n  constructor(make, model, year) {\n    this.make = make;\n    this.model = model;\n    this.year = year;\n  }\n\n  displayDetails() {\n    console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}`);\n  }\n}\n\n// Define the Car class that extends Vehicle\nclass Car extends Vehicle {\n  constructor(make, model, year, doors) {\n    super(make, model, year); // Call the superclass constructor\n    this.doors = doors;\n  }\n\n  displayDetails() {\n    super.displayDetails();\n    console.log(`Doors: ${this.doors}`);\n  }\n}\n\n// Create an instance of the Car class\nconst myCar = new Car('Toyota', 'Camry', 2022, 4);\n\n// Display details of the car\nmyCar.displayDetails();"
+  },
+
+  {
+    "problem": "Write a JavaScript program that creates a class called 'BankAccount' with properties for account number and balance. Include methods to deposit and withdraw money from the account. Create some instances of the 'BankAccount' class, deposit some money, and withdraw a portion of it.",
+    "category": "OOP",
+    "solution": "// Define the BankAccount class\nclass BankAccount {\n  constructor(accountNumber, balance) {\n    this.accountNumber = accountNumber;\n    this.balance = balance;\n  }\n\n  // Method to deposit money\n  deposit(amount) {\n    this.balance += amount;\n  }\n\n  // Method to withdraw money\n  withdraw(amount) {\n    if (this.balance >= amount) {\n      this.balance -= amount;\n    } else {\n      console.log('Insufficient balance!');\n    }\n  }\n}\n\n// Create instances of the BankAccount class\nconst account1 = new BankAccount('ACC001', 1000);\nconst account2 = new BankAccount('ACC002', 500);\n\n// Deposit and withdraw money\naccount1.deposit(500);\naccount1.withdraw(200);\naccount2.deposit(100);\naccount2.withdraw(700);"
+  },
+  {
+    "problem": "Write a JavaScript program that creates a class called 'Shape' with a method to calculate the area. Create two subclasses, 'Circle' and 'Triangle', that inherit from the 'Shape' class and override the area calculation method. Create an instance of the 'Circle' class and calculate its area. Similarly, do the same for the 'Triangle' class.",
+    "category": "OOP",
+    "solution": "// Define the Shape class\nclass Shape {\n  calculateArea() {\n    return 'Area calculation not implemented';\n  }\n}\n\n// Define the Circle class that inherits from Shape\nclass Circle extends Shape {\n  constructor(radius) {\n    super();\n    this.radius = radius;\n  }\n\n  calculateArea() {\n    return Math.PI * this.radius * this.radius;\n  }\n}\n\n// Define the Triangle class that inherits from Shape\nclass Triangle extends Shape {\n  constructor(base, height) {\n    super();\n    this.base = base;\n    this.height = height;\n  }\n\n  calculateArea() {\n    return 0.5 * this.base * this.height;\n  }\n}\n\n// Create instances and calculate areas\nconst circle = new Circle(5);\nconst triangle = new Triangle(4, 6);\n\nconsole.log('Area of Circle:', circle.calculateArea());\nconsole.log('Area of Triangle:', triangle.calculateArea());"
+  },
+  {
+    "problem": "Write a JavaScript program that creates a class called 'Employee' with properties for name and salary. Include a method to calculate annual salary. Create a subclass called 'Manager' that inherits from the 'Employee' class and adds an additional property for department. Override the annual salary calculation method to include bonuses for managers. Create two instances of the 'Manager' class and calculate their annual salary.",
+    "category": "OOP",
+    "solution": "// Define the Employee class\nclass Employee {\n  constructor(name, salary) {\n    this.name = name;\n    this.salary = salary;\n  }\n\n  // Method to calculate annual salary\n  calculateAnnualSalary() {\n    return this.salary * 12;\n  }\n}\n\n// Define the Manager class that inherits from Employee\nclass Manager extends Employee {\n  constructor(name, salary, department) {\n    super(name, salary);\n    this.department = department;\n  }\n\n  // Override calculateAnnualSalary method for managers (including bonus)\n  calculateAnnualSalary() {\n    const baseSalary = super.calculateAnnualSalary();\n    const bonusPercentage = 0.1; // 10% bonus\n    const bonus = baseSalary * bonusPercentage;\n    return baseSalary + bonus;\n  }\n}\n\n// Create instances of the Manager class\nconst manager1 = new Manager('John Doe', 60000, 'Marketing');\nconst manager2 = new Manager('Jane Smith', 75000, 'Sales');\n\n// Calculate and log annual salaries\nconsole.log('Annual Salary of Manager 1:', manager1.calculateAnnualSalary());\nconsole.log('Annual Salary of Manager 2:', manager2.calculateAnnualSalary());"
+  },
+
+  {
+    "problem": "Write a JavaScript program that creates a class `Book` with properties for title, author, and publication year. Include a method to display book details. Create a subclass called 'Ebook' that inherits from the 'Book' class and includes an additional property for book price. Override the display method to include the book price. Create an instance of the 'Ebook' class and display its details.",
+    "category": "OOP",
+    "solution": "// Define the Book class\nclass Book {\n  constructor(title, author, publicationYear) {\n    this.title = title;\n    this.author = author;\n    this.publicationYear = publicationYear;\n  }\n\n  // Method to display book details\n  displayDetails() {\n    console.log(`Title: ${this.title}`);\n    console.log(`Author: ${this.author}`);\n    console.log(`Publication Year: ${this.publicationYear}`);\n  }\n}\n\n// Define the Ebook class that inherits from Book\nclass Ebook extends Book {\n  constructor(title, author, publicationYear, price) {\n    super(title, author, publicationYear);\n    this.price = price;\n  }\n\n  // Override displayDetails method to include price\n  displayDetails() {\n    super.displayDetails();\n    console.log(`Price: $${this.price}`);\n  }\n}\n\n// Create an instance of Ebook and display details\nconst ebook1 = new Ebook('JavaScript Mastery', 'John Doe', 2022, 9.99);\nebook1.displayDetails();"
+  },
+  {
+    "problem": "Write a JavaScript program that creates a class called 'Animal' with properties for species and sound. Include a method to make the animal's sound. Create a subclass called 'Dog' that inherits from the 'Animal' class and adds an additional property for color. Override the make sound method to include the dog's color. Create an instance of the 'Dog' class and make it make its sound.",
+    "category": "OOP",
+    "solution": "// Define the Animal class\nclass Animal {\n  constructor(species, sound) {\n    this.species = species;\n    this.sound = sound;\n  }\n\n  // Method to make the animal's sound\n  makeSound() {\n    console.log(`${this.species} says ${this.sound}`);\n  }\n}\n\n// Define the Dog class that inherits from Animal\nclass Dog extends Animal {\n  constructor(species, sound, color) {\n    super(species, sound);\n    this.color = color;\n  }\n\n  // Override makeSound method to include color\n  makeSound() {\n    super.makeSound();\n    console.log(`It's ${this.color}`);\n  }\n}\n\n// Create an instance of Dog and make it make its sound\nconst myDog = new Dog('Dog', 'Woof', 'brown');\nmyDog.makeSound();"
+  },
+  {
+    "problem": "Write a JavaScript program that creates a class called Bank with properties for bank names and branches. Include methods to add a branch, remove a branch, and display all branches. Create an instance of the Bank class and perform operations to add and remove branches.",
+    "category": "OOP",
+    "solution": "// Define the Bank class\nclass Bank {\n  constructor(bankName) {\n    this.bankName = bankName;\n    this.branches = [];\n  }\n\n  // Method to add a branch\n  addBranch(branchName) {\n    this.branches.push(branchName);\n  }\n\n  // Method to remove a branch\n  removeBranch(branchName) {\n    const index = this.branches.indexOf(branchName);\n    if (index !== -1) {\n      this.branches.splice(index, 1);\n    }\n  }\n\n  // Method to display all branches\n  displayBranches() {\n    console.log(`Branches of ${this.bankName} Bank:`);\n    this.branches.forEach(branch => console.log(branch));\n  }\n}\n\n// Create an instance of Bank\nconst myBank = new Bank('XYZ Bank');\n\n// Perform operations\nmyBank.addBranch('Main Branch');\nmyBank.addBranch('Downtown Branch');\nmyBank.addBranch('West Branch');\nmyBank.displayBranches();\n\nmyBank.removeBranch('Downtown Branch');\nmyBank.displayBranches();"
+  },
+
+  {
+    "problem": "Write a JavaScript program that creates a class called Product with properties for product ID, name, and price. Include a method to calculate the total price by multiplying the price by the quantity. Create a subclass called PersonalCareProduct that inherits from the Product class and adds an additional property for the warranty period. Override the total price calculation method to include the warranty period. Create an instance of the PersonalCareProduct class and calculate its total price.",
+    "category": "OOP",
+    "solution": "// Define the Product class\nclass Product {\n  constructor(productID, name, price) {\n    this.productID = productID;\n    this.name = name;\n    this.price = price;\n  }\n\n  // Method to calculate total price\n  calculateTotalPrice(quantity) {\n    return this.price * quantity;\n  }\n}\n\n// Define the PersonalCareProduct class that inherits from Product\nclass PersonalCareProduct extends Product {\n  constructor(productID, name, price, warrantyPeriod) {\n    super(productID, name, price);\n    this.warrantyPeriod = warrantyPeriod;\n  }\n\n  // Override calculateTotalPrice method to include warranty\n  calculateTotalPrice(quantity) {\n    const totalPrice = super.calculateTotalPrice(quantity);\n    return `${totalPrice} (Warranty: ${this.warrantyPeriod} months)`;\n  }\n}\n\n// Create an instance of PersonalCareProduct and calculate total price\nconst hairDryer = new PersonalCareProduct('PD001', 'Hair Dryer', 50, 12);\nconsole.log(hairDryer.calculateTotalPrice(2));"
+  },
+  {
+    "problem": "Write a JavaScript program that creates a class called BankAccount with properties for account number, account holder name, and balance. Include methods to deposit, withdraw, and transfer money between accounts. Create multiple instances of the BankAccount class and perform operations such as depositing, withdrawing, and transferring money.",
+    "category": "OOP",
+    "solution": "// Define the BankAccount class\nclass BankAccount {\n  constructor(accountNumber, accountHolderName, balance) {\n    this.accountNumber = accountNumber;\n    this.accountHolderName = accountHolderName;\n    this.balance = balance;\n  }\n\n  // Method to deposit money\n  deposit(amount) {\n    this.balance += amount;\n  }\n\n  // Method to withdraw money\n  withdraw(amount) {\n    if (this.balance >= amount) {\n      this.balance -= amount;\n    } else {\n      console.log('Insufficient balance!');\n    }\n  }\n\n  // Method to transfer money to another account\n  transfer(amount, recipientAccount) {\n    if (this.balance >= amount) {\n      this.withdraw(amount);\n      recipientAccount.deposit(amount);\n      console.log(`Transferred $${amount} to account ${recipientAccount.accountNumber}`);\n    } else {\n      console.log('Insufficient balance for transfer!');\n    }\n  }\n}\n\n// Create multiple instances of BankAccount class\nconst account1 = new BankAccount('ACC001', 'John Doe', 1000);\nconst account2 = new BankAccount('ACC002', 'Jane Smith', 500);\n\n// Perform operations\naccount1.deposit(500);\naccount1.withdraw(200);\naccount2.deposit(100);\naccount1.transfer(300, account2);"
+  },
+  {
+    "problem": "Write a JavaScript program that creates a class called University with properties for university name and departments. Include methods to add a department, remove a department, and display all departments. Create an instance of the University class and add and remove departments.",
+    "category": "OOP",
+    "solution": "// Define the University class\nclass University {\n  constructor(universityName) {\n    this.universityName = universityName;\n    this.departments = [];\n  }\n\n  // Method to add a department\n  addDepartment(departmentName) {\n    this.departments.push(departmentName);\n  }\n\n  // Method to remove a department\n  removeDepartment(departmentName) {\n    const index = this.departments.indexOf(departmentName);\n    if (index !== -1) {\n      this.departments.splice(index, 1);\n    }\n  }\n\n  // Method to display all departments\n  displayDepartments() {\n    console.log(`Departments of ${this.universityName}:`);\n    this.departments.forEach(department => console.log(department));\n  }\n}\n\n// Create an instance of University\nconst myUniversity = new University('ABC University');\n\n// Perform operations\nmyUniversity.addDepartment('Computer Science');\nmyUniversity.addDepartment('Electrical Engineering');\nmyUniversity.addDepartment('Mathematics');\nmyUniversity.displayDepartments();\n\nmyUniversity.removeDepartment('Mathematics');\nmyUniversity.displayDepartments();"
+  },
+
+  {
+    "problem": "Write a JavaScript program that implements a stack and creates a new stack that contains only elements that are in either the first or the second stack, but not in both.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to remove element from the stack\n  pop() {\n    if (this.items.length === 0) {\n      return 'Underflow';\n    }\n    return this.items.pop();\n  }\n\n  // Method to check if stack is empty\n  isEmpty() {\n    return this.items.length === 0;\n  }\n\n  // Method to create a new stack from elements that are in either this stack or another stack, but not in both\n  symmetricDifference(otherStack) {\n    const resultStack = new Stack();\n    const combinedStack = [...this.items, ...otherStack.items];\n\n    combinedStack.forEach(item => {\n      if (this.items.includes(item) !== otherStack.items.includes(item)) {\n        resultStack.push(item);\n      }\n    });\n\n    return resultStack;\n  }\n}\n\n// Example usage:\nconst stack1 = new Stack();\nstack1.push(1);\nstack1.push(2);\nstack1.push(3);\n\nconst stack2 = new Stack();\nstack2.push(3);\nstack2.push(4);\nstack2.push(5);\n\nconst resultStack = stack1.symmetricDifference(stack2);\nconsole.log('Symmetric Difference:', resultStack.items);"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a stack and creates a new stack from a portion of the original stack.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to remove element from the stack\n  pop() {\n    if (this.items.length === 0) {\n      return 'Underflow';\n    }\n    return this.items.pop();\n  }\n\n  // Method to create a new stack from a portion of the original stack\n  sliceStack(startIndex, endIndex) {\n    const slicedItems = this.items.slice(startIndex, endIndex + 1);\n    const resultStack = new Stack();\n    slicedItems.forEach(item => resultStack.push(item));\n    return resultStack;\n  }\n}\n\n// Example usage:\nconst stack = new Stack();\nstack.push(1);\nstack.push(2);\nstack.push(3);\nstack.push(4);\nstack.push(5);\n\nconst slicedStack = stack.sliceStack(1, 3);\nconsole.log('Sliced Stack:', slicedStack.items);"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a stack and checks if all elements of the stack satisfy a condition.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to check if all elements of the stack satisfy a condition\n  allElementsSatisfy(conditionFunc) {\n    return this.items.every(conditionFunc);\n  }\n}\n\n// Example usage:\nconst stack = new Stack();\nstack.push(2);\nstack.push(4);\nstack.push(6);\n\n// Check if all elements are even\nconst allEven = stack.allElementsSatisfy(item => item % 2 === 0);\nconsole.log('All elements are even:', allEven);"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a stack and checks if at least one element of the stack satisfies a condition.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to check if at least one element of the stack satisfies a condition\n  anyElementSatisfies(conditionFunc) {\n    return this.items.some(conditionFunc);\n  }\n}\n\n// Example usage:\nconst stack = new Stack();\nstack.push(1);\nstack.push(3);\nstack.push(5);\n\n// Check if at least one element is odd\nconst anyOdd = stack.anyElementSatisfies(item => item % 2 !== 0);\nconsole.log('At least one element is odd:', anyOdd);"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a stack and create a new stack by removing elements that do not satisfy a condition.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to create a new stack by removing elements that do not satisfy a condition\n  filterStack(conditionFunc) {\n    const filteredItems = this.items.filter(conditionFunc);\n    const resultStack = new Stack();\n    filteredItems.forEach(item => resultStack.push(item));\n    return resultStack;\n  }\n}\n\n// Example usage:\nconst stack = new Stack();\nstack.push(1);\nstack.push(2);\nstack.push(3);\nstack.push(4);\n\n// Create a new stack with even elements\nconst filteredStack = stack.filterStack(item => item % 2 === 0);\nconsole.log('Filtered Stack:', filteredStack.items);"
+  },
+
+  {
+    "problem": "Write a JavaScript program to implement a stack that creates a copy of the stack.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to create a copy of the stack\n  copyStack() {\n    const copiedStack = new Stack();\n    this.items.forEach(item => copiedStack.push(item));\n    return copiedStack;\n  }\n}\n\n// Example usage:\nconst stack = new Stack();\nstack.push(1);\nstack.push(2);\nstack.push(3);\n\nconst copiedStack = stack.copyStack();\nconsole.log('Copied Stack:', copiedStack.items);"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a stack and checks if a stack is a subset of another stack.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to check if a stack is a subset of another stack\n  isSubsetOf(otherStack) {\n    return this.items.every(item => otherStack.items.includes(item));\n  }\n}\n\n// Example usage:\nconst stack1 = new Stack();\nstack1.push(1);\nstack1.push(2);\nstack1.push(3);\n\nconst stack2 = new Stack();\nstack2.push(1);\nstack2.push(2);\n\nconsole.log('Stack2 is a subset of Stack1:', stack2.isSubsetOf(stack1));"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a stack and checks if two stacks are equal.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to check if two stacks are equal\n  isEqualTo(otherStack) {\n    if (this.items.length !== otherStack.items.length) {\n      return false;\n    }\n    for (let i = 0; i < this.items.length; i++) {\n      if (this.items[i] !== otherStack.items[i]) {\n        return false;\n      }\n    }\n    return true;\n  }\n}\n\n// Example usage:\nconst stack1 = new Stack();\nstack1.push(1);\nstack1.push(2);\nstack1.push(3);\n\nconst stack2 = new Stack();\nstack2.push(1);\nstack2.push(2);\nstack2.push(3);\n\nconsole.log('Stack1 is equal to Stack2:', stack1.isEqualTo(stack2));"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a stack and finds elements that are common in two stacks.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to find elements that are common in two stacks\n  findCommonElements(otherStack) {\n    const commonElements = [];\n    this.items.forEach(item => {\n      if (otherStack.items.includes(item) && !commonElements.includes(item)) {\n        commonElements.push(item);\n      }\n    });\n    return commonElements;\n  }\n}\n\n// Example usage:\nconst stack1 = new Stack();\nstack1.push(1);\nstack1.push(2);\nstack1.push(3);\n\nconst stack2 = new Stack();\nstack2.push(3);\nstack2.push(4);\nstack2.push(5);\n\nconst commonElements = stack1.findCommonElements(stack2);\nconsole.log('Common Elements:', commonElements);"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a stack and find elements that are in the first stack but not in the second stack.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to find elements that are in the first stack but not in the second stack\n  findDifference(otherStack) {\n    const differenceElements = [];\n    this.items.forEach(item => {\n      if (!otherStack.items.includes(item) && !differenceElements.includes(item)) {\n        differenceElements.push(item);\n      }\n    });\n    return differenceElements;\n  }\n}\n\n// Example usage:\nconst stack1 = new Stack();\nstack1.push(1);\nstack1.push(2);\nstack1.push(3);\n\nconst stack2 = new Stack();\nstack2.push(3);\nstack2.push(4);\nstack2.push(5);\n\nconst differenceElements = stack1.findDifference(stack2);\nconsole.log('Difference Elements:', differenceElements);"
+  },
+  {
+    "problem": "Write a JavaScript program that implements a stack and creates a new stack that contains all elements from both stacks without duplicates.",
+    "category": "Stack",
+    "solution": "// Define the Stack class\nclass Stack {\n  constructor() {\n    this.items = [];\n  }\n\n  // Method to add element to the stack\n  push(element) {\n    this.items.push(element);\n  }\n\n  // Method to create a new stack that contains all elements from both stacks without duplicates\n  mergeStacks(otherStack) {\n    const mergedStack = new Stack();\n    const combinedItems = [...this.items, ...otherStack.items];\n\n    combinedItems.forEach(item => {\n      if (!mergedStack.items.includes(item)) {\n        mergedStack.push(item);\n      }\n    });\n\n    return mergedStack;\n  }\n}\n\n// Example usage:\nconst stack1 = new Stack();\nstack1.push(1);\nstack1.push(2);\nstack1.push(3);\n\nconst stack2 = new Stack();\nstack2.push(3);\nstack2.push(4);\nstack2.push(5);\n\nconst mergedStack = stack1.mergeStacks(stack2);\nconsole.log('Merged Stack:', mergedStack.items);"
+  },
+
+  {
+    "problem": "According to Wikipedia a happy number is defined by the following process: 'Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers)'. Write a JavaScript program to find and print the first 5 happy numbers.",
+    "category": "Conditional statements",
+    "solution": "// Function to check if a number is happy\nfunction isHappyNumber(num) {\n  let seen = {};\n  while (num !== 1 && !seen[num]) {\n    seen[num] = true;\n    num = num.toString().split('').reduce((sum, digit) => sum + Math.pow(parseInt(digit), 2), 0);\n  }\n  return num === 1;\n}\n\n// Function to find the first n happy numbers\nfunction findHappyNumbers(n) {\n  let count = 0;\n  let num = 1;\n  const happyNumbers = [];\n  while (count < n) {\n    if (isHappyNumber(num)) {\n      happyNumbers.push(num);\n      count++;\n    }\n    num++;\n  }\n  return happyNumbers;\n}\n\n// Find and print the first 5 happy numbers\nconst first5HappyNumbers = findHappyNumbers(5);\nconsole.log('First 5 Happy Numbers:', first5HappyNumbers);"
+  },
+  {
+    "problem": "Write a JavaScript program to find the Armstrong numbers of 3 digits. Note: An Armstrong number of three digits is an integer such that the sum of the cubes of its digits is equal to the number itself. For example, 371 is an Armstrong number since 3**3 + 7**3 + 1**3 = 371.",
+    "category": "Conditional statements",
+    "solution": "// Function to check if a number is an Armstrong number\nfunction isArmstrongNumber(num) {\n  const numStr = num.toString();\n  const numDigits = numStr.length;\n  let sum = 0;\n  for (let digit of numStr) {\n    sum += Math.pow(parseInt(digit), numDigits);\n  }\n  return sum === num;\n}\n\n// Find and print Armstrong numbers of 3 digits\nconst armstrongNumbers = [];\nfor (let num = 100; num <= 999; num++) {\n  if (isArmstrongNumber(num)) {\n    armstrongNumbers.push(num);\n  }\n}\nconsole.log('Armstrong Numbers of 3 digits:', armstrongNumbers);"
+  },
+  {
+    "problem": "Write a JavaScript program to construct the following pattern, using a nested for loop.\n*\n* *\n* * *\n* * * *\n* * * * *",
+    "category": "Loops",
+    "solution": "// Construct the pattern using a nested for loop\nconst rows = 5;\nlet pattern = '';\nfor (let i = 1; i <= rows; i++) {\n  for (let j = 1; j <= i; j++) {\n    pattern += '* ';\n  }\n  pattern += '\\n';\n}\nconsole.log('Pattern:\\n' + pattern);"
+  },
+  {
+    "problem": "Write a JavaScript program to compute the greatest common divisor (GCD) of two positive integers.",
+    "category": "Conditional statements",
+    "solution": "// Function to compute the GCD of two numbers\nfunction findGCD(num1, num2) {\n  while (num2 !== 0) {\n    const temp = num2;\n    num2 = num1 % num2;\n    num1 = temp;\n  }\n  return num1;\n}\n\n// Compute and print the GCD of two positive integers\nconst num1 = 24;\nconst num2 = 36;\nconst gcd = findGCD(num1, num2);\nconsole.log(`GCD of ${num1} and ${num2} is ${gcd}`);"
+  },
+  {
+    "problem": "Write a JavaScript program to sum 3 and 5 multiples under 1000.",
+    "category": "Loops",
+    "solution": "// Function to sum multiples of 3 and 5 under a limit\nfunction sumMultiples(limit) {\n  let sum = 0;\n  for (let i = 1; i < limit; i++) {\n    if (i % 3 === 0 || i % 5 === 0) {\n      sum += i;\n    }\n  }\n  return sum;\n}\n\n// Compute and print the sum of multiples under 1000\nconst limit = 1000;\nconst sum = sumMultiples(limit);\nconsole.log('Sum of multiples of 3 and 5 under 1000:', sum);"
+  },
+
+  {
+    "problem": "Flatten Nested Array: Given a nested array, write a function to flatten it into a single-level array.",
+    "category": "Loops",
+    "solution": "// Function to flatten a nested array\nfunction flattenArray(arr) {\n  return arr.reduce((flat, toFlatten) => {\n    return flat.concat(Array.isArray(toFlatten) ? flattenArray(toFlatten) : toFlatten);\n  }, []);\n}\n\n// Example usage:\nconst nestedArray = [1, [2, [3, 4], 5], 6];\nconst flatArray = flattenArray(nestedArray);\nconsole.log('Flattened Array:', flatArray);"
+  },
+  {
+    "problem": "Unique Values: Write a function that takes an array and returns a new array containing only the unique values (no duplicates).",
+    "category": "Loops",
+    "solution": "// Function to get unique values from an array\nfunction getUniqueValues(arr) {\n  return Array.from(new Set(arr));\n}\n\n// Example usage:\nconst array = [1, 2, 3, 2, 4, 5, 3];\nconst uniqueArray = getUniqueValues(array);\nconsole.log('Unique Values:', uniqueArray);"
+  },
+  {
+    "problem": "Object Transformation: Given an array of objects, transform the objects into a new array containing specific properties or calculations based on the object's properties.",
+    "category": "Loops",
+    "solution": "// Sample array of objects\nconst students = [\n  { name: 'Alice', score: 80 },\n  { name: 'Bob', score: 90 },\n  { name: 'Charlie', score: 75 }\n];\n\n// Transform objects into a new array of names\nconst namesArray = students.map(student => student.name);\nconsole.log('Names Array:', namesArray);"
+  },
+  {
+    "problem": "Matrix Operations: Perform matrix operations (like transpose, multiplication, addition) on a given matrix represented as a two-dimensional array.",
+    "category": "Loops",
+    "solution": "// Function to transpose a matrix\nfunction transposeMatrix(matrix) {\n  return matrix[0].map((_, colIndex) => matrix.map(row => row[colIndex]));\n}\n\n// Example usage:\nconst matrix = [\n  [1, 2, 3],\n  [4, 5, 6]\n];\nconst transposedMatrix = transposeMatrix(matrix);\nconsole.log('Transposed Matrix:', transposedMatrix);"
+  },
+  {
+    "problem": "Iterate Over Object Properties: Write a function to iterate over all enumerable properties of an object (including nested objects) and perform a specific operation on each property or value.",
+    "category": "Loops",
+    "solution": "// Function to iterate over object properties\nfunction iterateObject(obj, callback) {\n  for (const key in obj) {\n    if (obj.hasOwnProperty(key)) {\n      const value = obj[key];\n      if (typeof value === 'object') {\n        iterateObject(value, callback); // Recursive call for nested objects\n      } else {\n        callback(key, value);\n      }\n    }\n  }\n}\n\n// Example usage:\nconst person = {\n  name: 'John Doe',\n  age: 30,\n  address: {\n    city: 'New York',\n    zip: '10001'\n  }\n};\niterateObject(person, (key, value) => {\n  console.log(`${key}: ${value}`);\n});"
+  },
+  {
+    "problem": "Write a JavaScript code to count all letters in a word.",
+    "category": "Loops",
+    "solution": "// Function to count letters in a word\nfunction countLetters(word) {\n  const letterCount = {};\n  for (let letter of word) {\n    letter = letter.toLowerCase();\n    if (/[a-z]/.test(letter)) {\n      letterCount[letter] = (letterCount[letter] || 0) + 1;\n    }\n  }\n  return letterCount;\n}\n\n// Example usage:\nconst word = 'Hello World';\nconst lettersCount = countLetters(word);\nconsole.log('Letter Count:', lettersCount);"
+  },
+  {
+    "problem": "Write a JavaScript code to find duplicate values in a given array.",
+    "category": "Loops",
+    "solution": "// Function to find duplicate values in an array\nfunction findDuplicates(arr) {\n  const duplicates = {};\n  for (let item of arr) {\n    duplicates[item] = (duplicates[item] || 0) + 1;\n  }\n  return Object.keys(duplicates).filter(key => duplicates[key] > 1);\n}\n\n// Example usage:\nconst array = [1, 2, 3, 4, 2, 5, 6, 3];\nconst duplicateValues = findDuplicates(array);\nconsole.log('Duplicate Values:', duplicateValues);"
+  },
+  {
+    "problem": "Write a JavaScript code for binary search algorithm.",
+    "category": "Loops",
+    "solution": "// Function to perform binary search\nfunction binarySearch(arr, target) {\n  let left = 0;\n  let right = arr.length - 1;\n  while (left <= right) {\n    const mid = Math.floor((left + right) / 2);\n    if (arr[mid] === target) {\n      return mid;\n    } else if (arr[mid] < target) {\n      left = mid + 1;\n    } else {\n      right = mid - 1;\n    }\n  }\n  return -1; // Not found\n}\n\n// Example usage:\nconst array = [1, 3, 5, 7, 9];\nconst target = 5;\nconst index = binarySearch(array, target);\nconsole.log('Index of', target, 'is', index);"
+  },
+  {
+    "problem": "Write a JavaScript function to generate a new array which is the product of two arrays of the same size using a for loop.",
+    "category": "Loops",
+    "solution": "// Function to generate product of two arrays\nfunction arrayProduct(arr1, arr2) {\n  if (arr1.length !== arr2.length) {\n    throw new Error('Arrays must be of the same size');\n  }\n  const productArray = [];\n  for (let i = 0; i < arr1.length; i++) {\n    productArray.push(arr1[i] * arr2[i]);\n  }\n  return productArray;\n}\n\n// Example usage:\nconst array1 = [1, 2, 3];\nconst array2 = [4, 5, 6];\nconst product = arrayProduct(array1, array2);\nconsole.log('Product Array:', product);"
+  },
+
+  {
+    "problem": "Selection Sort",
+    "category": "Sorts",
+    "solution": "// Function for Selection Sort\nfunction selectionSort(arr) {\n  const n = arr.length;\n  for (let i = 0; i < n - 1; i++) {\n    let minIndex = i;\n    for (let j = i + 1; j < n; j++) {\n      if (arr[j] < arr[minIndex]) {\n        minIndex = j;\n      }\n    }\n    if (minIndex !== i) {\n      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];\n    }\n  }\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Selection Sorted Array:', selectionSort(array));"
+  },
+  {
+    "problem": "Bubble Sort",
+    "category": "Sorts",
+    "solution": "// Function for Bubble Sort\nfunction bubbleSort(arr) {\n  const n = arr.length;\n  for (let i = 0; i < n - 1; i++) {\n    for (let j = 0; j < n - i - 1; j++) {\n      if (arr[j] > arr[j + 1]) {\n        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];\n      }\n    }\n  }\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Bubble Sorted Array:', bubbleSort(array));"
+  },
+  {
+    "problem": "Insertion Sort",
+    "category": "Sorts",
+    "solution": "// Function for Insertion Sort\nfunction insertionSort(arr) {\n  const n = arr.length;\n  for (let i = 1; i < n; i++) {\n    let key = arr[i];\n    let j = i - 1;\n    while (j >= 0 && arr[j] > key) {\n      arr[j + 1] = arr[j];\n      j--;\n    }\n    arr[j + 1] = key;\n  }\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Insertion Sorted Array:', insertionSort(array));"
+  },
+  {
+    "problem": "Merge Sort",
+    "category": "Sorts",
+    "solution": "// Function for Merge Sort\nfunction mergeSort(arr) {\n  if (arr.length <= 1) {\n    return arr;\n  }\n  const middle = Math.floor(arr.length / 2);\n  const left = arr.slice(0, middle);\n  const right = arr.slice(middle);\n  return merge(mergeSort(left), mergeSort(right));\n}\n\nfunction merge(left, right) {\n  let result = [];\n  let leftIndex = 0;\n  let rightIndex = 0;\n  while (leftIndex < left.length && rightIndex < right.length) {\n    if (left[leftIndex] < right[rightIndex]) {\n      result.push(left[leftIndex]);\n      leftIndex++;\n    } else {\n      result.push(right[rightIndex]);\n      rightIndex++;\n    }\n  }\n  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Merge Sorted Array:', mergeSort(array));"
+  },
+  {
+    "problem": "Quick Sort",
+    "category": "Sorts",
+    "solution": "// Function for Quick Sort\nfunction quickSort(arr) {\n  if (arr.length <= 1) {\n    return arr;\n  }\n  const pivot = arr[arr.length - 1];\n  const left = [];\n  const right = [];\n  for (let i = 0; i < arr.length - 1; i++) {\n    if (arr[i] < pivot) {\n      left.push(arr[i]);\n    } else {\n      right.push(arr[i]);\n    }\n  }\n  return [...quickSort(left), pivot, ...quickSort(right)];\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Quick Sorted Array:', quickSort(array));"
+  },
+  {
+    "problem": "Heap Sort",
+    "category": "Sorts",
+    "solution": "// Function for Heap Sort\nfunction heapSort(arr) {\n  const n = arr.length;\n  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {\n    heapify(arr, n, i);\n  }\n  for (let i = n - 1; i > 0; i--) {\n    [arr[0], arr[i]] = [arr[i], arr[0]];\n    heapify(arr, i, 0);\n  }\n  return arr;\n}\n\nfunction heapify(arr, n, i) {\n  let largest = i;\n  let left = 2 * i + 1;\n  let right = 2 * i + 2;\n  if (left < n && arr[left] > arr[largest]) {\n    largest = left;\n  }\n  if (right < n && arr[right] > arr[largest]) {\n    largest = right;\n  }\n  if (largest !== i) {\n    [arr[i], arr[largest]] = [arr[largest], arr[i]];\n    heapify(arr, n, largest);\n  }\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Heap Sorted Array:', heapSort(array));"
+  },
+  {
+    "problem": "Counting Sort",
+    "category": "Sorts",
+    "solution": "// Function for Counting Sort\nfunction countingSort(arr) {\n  const max = Math.max(...arr);\n  const countArray = new Array(max + 1).fill(0);\n  const sortedArray = [];\n\n  for (let num of arr) {\n    countArray[num]++;\n  }\n\n  for (let i = 0; i < countArray.length; i++) {\n    while (countArray[i] > 0) {\n      sortedArray.push(i);\n      countArray[i]--;\n    }\n  }\n\n  return sortedArray;\n}\n\n// Example usage:\nconst array = [3, 1, 5, 2, 4];\nconsole.log('Counting Sorted Array:', countingSort(array));"
+  },
+  {
+    "problem": "Radix Sort",
+    "category": "Sorts",
+    "solution": "// Function for Radix Sort\nfunction radixSort(arr) {\n  const getMax = (arr) => Math.max(...arr);\n  const digitCount = (num) => String(num).length;\n\n  const maxDigits = digitCount(getMax(arr));\n  let sortedArray = [...arr];\n\n  for (let k = 0; k < maxDigits; k++) {\n    const buckets = Array.from({ length: 10 }, () => []);\n    for (let num of sortedArray) {\n      const digit = getDigit(num, k);\n      buckets[digit].push(num);\n    }\n    sortedArray = buckets.flat();\n  }\n\n  return sortedArray;\n}\n\nfunction getDigit(num, place) {\n  return Math.floor(Math.abs(num) / Math.pow(10, place)) % 10;\n}\n\n// Example usage:\nconst array = [170, 45, 75, 90, 802, 24, 2, 66];\nconsole.log('Radix Sorted Array:', radixSort(array));"
+  },
+  {
+    "problem": "Bucket Sort",
+    "category": "Sorts",
+    "solution": "// Function for Bucket Sort\nfunction bucketSort(arr, bucketSize = 5) {\n  if (arr.length === 0) {\n    return arr;\n  }\n\n  const min = Math.min(...arr);\n  const max = Math.max(...arr);\n  const bucketCount = Math.floor((max - min) / bucketSize) + 1;\n  const buckets = Array.from({ length: bucketCount }, () => []);\n\n  for (let num of arr) {\n    const index = Math.floor((num - min) / bucketSize);\n    buckets[index].push(num);\n  }\n\n  const sortedArray = [];\n  for (let bucket of buckets) {\n    insertionSort(bucket); // Using Insertion Sort for each bucket\n    sortedArray.push(...bucket);\n  }\n\n  return sortedArray;\n}\n\n// Helper function for Insertion Sort\nfunction insertionSort(arr) {\n  const n = arr.length;\n  for (let i = 1; i < n; i++) {\n    let key = arr[i];\n    let j = i - 1;\n    while (j >= 0 && arr[j] > key) {\n      arr[j + 1] = arr[j];\n      j--;\n    }\n    arr[j + 1] = key;\n  }\n}\n\n// Example usage:\nconst array = [170, 45, 75, 90, 802, 24, 2, 66];\nconsole.log('Bucket Sorted Array:', bucketSort(array));"
+  },
+  {
+    "problem": "Bingo Sort Algorithm",
+    "category": "Sorts",
+    "solution": "// Function for Bingo Sort\nfunction bingoSort(arr) {\n  const n = arr.length;\n  let sorted = false;\n\n  while (!sorted) {\n    sorted = true;\n    for (let i = 0; i < n - 1; i++) {\n      if (arr[i] > arr[i + 1]) {\n        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];\n        sorted = false;\n      }\n    }\n  }\n\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Bingo Sorted Array:', bingoSort(array));"
+  },
+  {
+    "problem": "ShellSort",
+    "category": "Sorts",
+    "solution": "// Function for Shell Sort\nfunction shellSort(arr) {\n  const n = arr.length;\n  for (let gap = Math.floor(n / 2); gap > 0; gap = Math.floor(gap / 2)) {\n    for (let i = gap; i < n; i++) {\n      let temp = arr[i];\n      let j = i;\n      while (j >= gap && arr[j - gap] > temp) {\n        arr[j] = arr[j - gap];\n        j -= gap;\n      }\n      arr[j] = temp;\n    }\n  }\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Shell Sorted Array:', shellSort(array));"
+  },
+
+  {
+    "problem": "TimSort",
+    "category": "Sorts",
+    "solution": "// Timsort is a hybrid sorting algorithm derived from merge sort and insertion sort. It is used in Python and Java.\n// Due to its complex implementation, it's not practical to provide a short implementation here."
+  },
+  {
+    "problem": "Comb Sort",
+    "category": "Sorts",
+    "solution": "// Function for Comb Sort\nfunction combSort(arr) {\n  const n = arr.length;\n  let gap = n;\n  let swapped = true;\n\n  while (gap > 1 || swapped) {\n    gap = getNextGap(gap);\n    swapped = false;\n\n    for (let i = 0; i < n - gap; i++) {\n      if (arr[i] > arr[i + gap]) {\n        [arr[i], arr[i + gap]] = [arr[i + gap], arr[i]];\n        swapped = true;\n      }\n    }\n  }\n\n  return arr;\n}\n\nfunction getNextGap(gap) {\n  gap = Math.floor((gap * 10) / 13); // Shrink gap by a factor of 1.3\n  return gap < 1 ? 1 : gap;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Comb Sorted Array:', combSort(array));"
+  },
+  {
+    "problem": "Pigeonhole Sort",
+    "category": "Sorts",
+    "solution": "// Function for Pigeonhole Sort\nfunction pigeonholeSort(arr) {\n  const n = arr.length;\n  let min = Math.min(...arr);\n  let max = Math.max(...arr);\n  const range = max - min + 1;\n\n  const pigeonhole = new Array(range);\n  pigeonhole.fill(0);\n\n  for (let i = 0; i < n; i++) {\n    pigeonhole[arr[i] - min]++;\n  }\n\n  let index = 0;\n  for (let i = 0; i < range; i++) {\n    while (pigeonhole[i] > 0) {\n      arr[index++] = i + min;\n      pigeonhole[i]--;\n    }\n  }\n\n  return arr;\n}\n\n// Example usage:\nconst array = [8, 3, 2, 7, 4, 6, 8];\nconsole.log('Pigeonhole Sorted Array:', pigeonholeSort(array));"
+  },
+  {
+    "problem": "Cycle Sort",
+    "category": "Sorts",
+    "solution": "// Function for Cycle Sort\nfunction cycleSort(arr) {\n  const n = arr.length;\n  for (let cycleStart = 0; cycleStart < n - 1; cycleStart++) {\n    let item = arr[cycleStart];\n    let pos = cycleStart;\n    for (let i = cycleStart + 1; i < n; i++) {\n      if (arr[i] < item) {\n        pos++;\n      }\n    }\n    if (pos === cycleStart) {\n      continue;\n    }\n    while (item === arr[pos]) {\n      pos++;\n    }\n    if (pos !== cycleStart) {\n      [item, arr[pos]] = [arr[pos], item];\n    }\n    while (pos !== cycleStart) {\n      pos = cycleStart;\n      for (let i = cycleStart + 1; i < n; i++) {\n        if (arr[i] < item) {\n          pos++;\n        }\n      }\n      while (item === arr[pos]) {\n        pos++;\n      }\n      if (item !== arr[pos]) {\n        [item, arr[pos]] = [arr[pos], item];\n      }\n    }\n  }\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Cycle Sorted Array:', cycleSort(array));"
+  },
+  {
+    "problem": "Cocktail Sort",
+    "category": "Sorts",
+    "solution": "// Function for Cocktail Sort (Bidirectional Bubble Sort)\nfunction cocktailSort(arr) {\n  const n = arr.length;\n  let swapped = true;\n  let start = 0;\n  let end = n - 1;\n\n  while (swapped) {\n    swapped = false;\n\n    for (let i = start; i < end; i++) {\n      if (arr[i] > arr[i + 1]) {\n        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];\n        swapped = true;\n      }\n    }\n\n    if (!swapped) {\n      break;\n    }\n\n    swapped = false;\n\n    end--;\n\n    for (let i = end - 1; i >= start; i--) {\n      if (arr[i] > arr[i + 1]) {\n        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];\n        swapped = true;\n      }\n    }\n\n    start++;\n  }\n\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Cocktail Sorted Array:', cocktailSort(array));"
+  },
+  {
+    "problem": "Strand Sort",
+    "category": "Sorts",
+    "solution": "// Function for Strand Sort\nfunction strandSort(arr) {\n  const sorted = [];\n\n  while (arr.length > 0) {\n    let sublist = [arr.shift()];\n    let i = 0;\n\n    while (i < arr.length) {\n      if (arr[i] > sublist[sublist.length - 1]) {\n        sublist.push(arr.splice(i, 1)[0]);\n      } else {\n        i++;\n      }\n    }\n\n    sorted.push(...mergeSortedArrays(sublist, sorted));\n  }\n\n  return sorted;\n}\n\nfunction mergeSortedArrays(arr1, arr2) {\n  const merged = [];\n  let i = 0;\n  let j = 0;\n\n  while (i < arr1.length && j < arr2.length) {\n    if (arr1[i] < arr2[j]) {\n      merged.push(arr1[i++]);\n    } else {\n      merged.push(arr2[j++]);\n    }\n  }\n\n  while (i < arr1.length) {\n    merged.push(arr1[i++]);\n  }\n\n  while (j < arr2.length) {\n    merged.push(arr2[j++]);\n  }\n\n  return merged;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Strand Sorted Array:', strandSort(array));"
+  },
+  {
+    "problem": "Bitonic Sort",
+    "category": "Sorts",
+    "solution": "// Function for Bitonic Sort\nfunction bitonicSort(arr, ascending = true) {\n  const n = arr.length;\n  bitonicSortHelper(arr, 0, n, ascending);\n  return arr;\n}\n\nfunction bitonicSortHelper(arr, low, cnt, ascending) {\n  if (cnt > 1) {\n    const k = cnt / 2;\n    bitonicSortHelper(arr, low, k, true);\n    bitonicSortHelper(arr, low + k, k, false);\n    bitonicMerge(arr, low, cnt, ascending);\n  }\n}\n\nfunction bitonicMerge(arr, low, cnt, ascending) {\n  if (cnt > 1) {\n    const k = greatestPowerOfTwoLessThanN(cnt);\n    for (let i = low; i < low + cnt - k; i++) {\n      compareAndSwap(arr, i, i + k, ascending);\n    }\n    bitonicMerge(arr, low, k, ascending);\n    bitonicMerge(arr, low + k, cnt - k, ascending);\n  }\n}\n\nfunction compareAndSwap(arr, i, j, ascending) {\n  if ((arr[i] > arr[j] && ascending) || (arr[i] < arr[j] && !ascending)) {\n    [arr[i], arr[j]] = [arr[j], arr[i]];\n  }\n}\n\nfunction greatestPowerOfTwoLessThanN(n) {\n  let k = 1;\n  while (k < n) {\n    k = k << 1;\n  }\n  return k >> 1;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Bitonic Sorted Array:', bitonicSort(array));"
+  },
+  {
+    "problem": "Pancake sorting",
+    "category": "Sorts",
+    "solution": "// Function for Pancake Sort\nfunction pancakeSort(arr) {\n  const n = arr.length;\n  for (let i = n; i > 1; i--) {\n    let maxIndex = findMaxIndex(arr, i);\n    if (maxIndex !== i - 1) {\n      flip(arr, maxIndex);\n      flip(arr, i - 1);\n    }\n  }\n  return arr;\n}\n\nfunction findMaxIndex(arr, n) {\n  let maxIndex = 0;\n  for (let i = 0; i < n; i++) {\n    if (arr[i] > arr[maxIndex]) {\n      maxIndex = i;\n    }\n  }\n  return maxIndex;\n}\n\nfunction flip(arr, end) {\n  let start = 0;\n  while (start < end) {\n    [arr[start], arr[end]] = [arr[end], arr[start]];\n    start++;\n    end--;\n  }\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Pancake Sorted Array:', pancakeSort(array));"
+  },
+  {
+    "problem": "BogoSort or Permutation Sort",
+    "category": "Sorts",
+    "solution": "// Function for Bogo Sort (Permutation Sort)\nfunction bogoSort(arr) {\n  while (!isSorted(arr)) {\n    shuffle(arr);\n  }\n  return arr;\n}\n\nfunction isSorted(arr) {\n  const n = arr.length;\n  for (let i = 0; i < n - 1; i++) {\n    if (arr[i] > arr[i + 1]) {\n      return false;\n    }\n  }\n  return true;\n}\n\nfunction shuffle(arr) {\n  const n = arr.length;\n  for (let i = 0; i < n; i++) {\n    const j = Math.floor(Math.random() * n);\n    [arr[i], arr[j]] = [arr[j], arr[i]];\n  }\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Bogo Sorted Array:', bogoSort(array));"
+  },
+
+  {
+    "problem": "Gnome Sort",
+    "category": "Sorts",
+    "solution": "// Function for Gnome Sort\nfunction gnomeSort(arr) {\n  const n = arr.length;\n  let index = 0;\n\n  while (index < n) {\n    if (index === 0 || arr[index] >= arr[index - 1]) {\n      index++;\n    } else {\n      [arr[index], arr[index - 1]] = [arr[index - 1], arr[index]];\n      index--;\n    }\n  }\n\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Gnome Sorted Array:', gnomeSort(array));"
+  },
+  {
+    "problem": "Stooge Sort",
+    "category": "Sorts",
+    "solution": "// Function for Stooge Sort\nfunction stoogeSort(arr, l = 0, h = arr.length - 1) {\n  if (l >= h) {\n    return arr;\n  }\n\n  if (arr[l] > arr[h]) {\n    [arr[l], arr[h]] = [arr[h], arr[l]];\n  }\n\n  if (h - l + 1 > 2) {\n    const t = Math.floor((h - l + 1) / 3);\n    stoogeSort(arr, l, h - t);\n    stoogeSort(arr, l + t, h);\n    stoogeSort(arr, l, h - t);\n  }\n\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Stooge Sorted Array:', stoogeSort(array));"
+  },
+  {
+    "problem": "Tree Sort",
+    "category": "Sorts",
+    "solution": "// Tree Sort is typically implemented using Binary Search Trees (BST).\n// Due to the complexity of BST implementation, it's not practical to provide a short implementation here."
+  },
+  {
+    "problem": "Odd-Even Sort / Brick Sort",
+    "category": "Sorts",
+    "solution": "// Function for Odd-Even Sort (Brick Sort)\nfunction oddEvenSort(arr) {\n  const n = arr.length;\n  let sorted = false;\n\n  while (!sorted) {\n    sorted = true;\n\n    for (let i = 1; i < n - 1; i += 2) {\n      if (arr[i] > arr[i + 1]) {\n        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];\n        sorted = false;\n      }\n    }\n\n    for (let i = 0; i < n - 1; i += 2) {\n      if (arr[i] > arr[i + 1]) {\n        [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];\n        sorted = false;\n      }\n    }\n  }\n\n  return arr;\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('Odd-Even Sorted Array:', oddEvenSort(array));"
+  },
+  {
+    "problem": "3-way Merge Sort",
+    "category": "Sorts",
+    "solution": "// Function for 3-way Merge Sort\nfunction mergeSort3Way(arr) {\n  const n = arr.length;\n  if (n <= 1) {\n    return arr;\n  }\n\n  const mid1 = Math.floor(n / 3);\n  const mid2 = Math.floor((2 * n) / 3);\n\n  const left = mergeSort3Way(arr.slice(0, mid1));\n  const middle = mergeSort3Way(arr.slice(mid1, mid2));\n  const right = mergeSort3Way(arr.slice(mid2));\n\n  return merge3Way(left, middle, right);\n}\n\nfunction merge3Way(left, middle, right) {\n  let result = [];\n\n  while (left.length && middle.length && right.length) {\n    if (left[0] < middle[0]) {\n      if (left[0] < right[0]) {\n        result.push(left.shift());\n      } else {\n        result.push(right.shift());\n      }\n    } else {\n      if (middle[0] < right[0]) {\n        result.push(middle.shift());\n      } else {\n        result.push(right.shift());\n      }\n    }\n  }\n\n  return result.concat(left, middle, right);\n}\n\n// Example usage:\nconst array = [64, 34, 25, 12, 22, 11, 90];\nconsole.log('3-way Merge Sorted Array:', mergeSort3Way(array));"
+  },
+
+  {
+    "problem": "Count occurrences of all items in an array in JavaScript",
+    "category": "Array",
+    "solution": "// Function to count occurrences of all items in an array\nfunction countOccurrences(arr) {\n  return arr.reduce((acc, curr) => {\n    acc[curr] ? acc[curr]++ : (acc[curr] = 1);\n    return acc;\n  }, {});\n}\n\n// Example usage:\nconst array = [1, 2, 3, 2, 4, 1, 5, 2, 6, 1];\nconsole.log('Occurrences:', countOccurrences(array));"
+  },
+  {
+    "problem": "Count Frequency of an Array Item in JavaScript",
+    "category": "Array",
+    "solution": "// Function to count frequency of an array item\nfunction countFrequency(arr, item) {\n  return arr.reduce((count, currentValue) => {\n    return currentValue === item ? count + 1 : count;\n  }, 0);\n}\n\n// Example usage:\nconst array = [1, 2, 3, 2, 4, 1, 5, 2, 6, 1];\nconst itemToCount = 2;\nconsole.log(`Frequency of ${itemToCount}:`, countFrequency(array, itemToCount));"
+  },
+  {
+    "problem": "Reverse an array in JavaScript",
+    "category": "Array",
+    "solution": "// Function to reverse an array\nfunction reverseArray(arr) {\n  return arr.reverse();\n}\n\n// Example usage:\nconst array = [1, 2, 3, 4, 5];\nconsole.log('Reversed Array:', reverseArray(array));"
+  },
+  {
+    "problem": "How to use Array.prototype.reduce() method in JavaScript ?",
+    "category": "Array",
+    "solution": "// The Array.prototype.reduce() method is used to reduce the array to a single value.\n// It executes a reducer function (that you provide) on each element of the array, resulting in a single output value.\n\n// Example usage:\nconst array = [1, 2, 3, 4, 5];\nconst sum = array.reduce((accumulator, currentValue) => accumulator + currentValue, 0);\nconsole.log('Sum of array elements:', sum);"
+  },
+  {
+    "problem": "How to convert two-dimensional array into an object in JavaScript ?",
+    "category": "Array",
+    "solution": "// Function to convert a two-dimensional array into an object\nfunction arrayToObject(arr) {\n  return Object.fromEntries(arr);\n}\n\n// Example usage:\nconst array = [['a', 1], ['b', 2], ['c', 3]];\nconsole.log('Array to Object:', arrayToObject(array));"
+  },
+
+  {
+    "problem": "Write a JavaScript function to get the week's start date.",
+    "category": "Date",
+    "solution": "// Function to get the week's start date\nfunction getWeekStartDate(date) {\n  const currDate = new Date(date);\n  const day = currDate.getDay();\n  const diff = currDate.getDate() - day + (day === 0 ? -6 : 1);\n  return new Date(currDate.setDate(diff));\n}\n\n// Example usage:\nconst currentDate = new Date();\nconsole.log('Week Start Date:', getWeekStartDate(currentDate));"
+  },
+  {
+    "problem": "Write a JavaScript function to get the week end date.",
+    "category": "Date",
+    "solution": "// Function to get the week end date\nfunction getWeekEndDate(date) {\n  const currDate = new Date(date);\n  const day = currDate.getDay();\n  const diff = currDate.getDate() - day + 7;\n  return new Date(currDate.setDate(diff));\n}\n\n// Example usage:\nconst currentDate = new Date();\nconsole.log('Week End Date:', getWeekEndDate(currentDate));"
+  },
+  {
+    "problem": "Write a JavaScript function to get the month's start date.",
+    "category": "Date",
+    "solution": "// Function to get the month's start date\nfunction getMonthStartDate(date) {\n  const currDate = new Date(date);\n  return new Date(currDate.getFullYear(), currDate.getMonth(), 1);\n}\n\n// Example usage:\nconst currentDate = new Date();\nconsole.log('Month Start Date:', getMonthStartDate(currentDate));"
+  },
+  {
+    "problem": "Write a JavaScript function to get the month end date.",
+    "category": "Date",
+    "solution": "// Function to get the month end date\nfunction getMonthEndDate(date) {\n  const currDate = new Date(date);\n  return new Date(currDate.getFullYear(), currDate.getMonth() + 1, 0);\n}\n\n// Example usage:\nconst currentDate = new Date();\nconsole.log('Month End Date:', getMonthEndDate(currentDate));"
+  },
+  {
+    "problem": "Write a JavaScript function to check if a given date is between two other dates.",
+    "category": "Date",
+    "solution": "// Function to check if a date is between two other dates\nfunction isDateBetween(date, startDate, endDate) {\n  const checkDate = new Date(date);\n  return checkDate >= startDate && checkDate <= endDate;\n}\n\n// Example usage:\nconst currentDate = new Date();\nconst startDate = new Date(2024, 0, 1); // January 1, 2024\nconst endDate = new Date(2024, 11, 31); // December 31, 2024\nconsole.log(isDateBetween(currentDate, startDate, endDate));"
+  },
+  {
+    "problem": "Write a JavaScript program to check if the current date is a weekday or a weekend.",
+    "category": "Date",
+    "solution": "// Function to check if the current date is a weekday or a weekend\nfunction isWeekend(date) {\n  const day = date.getDay();\n  return day === 0 || day === 6; // 0: Sunday, 6: Saturday\n}\n\n// Example usage:\nconst currentDate = new Date();\nconsole.log('Is Weekend:', isWeekend(currentDate));"
+  },
+  {
+    "problem": "Write a JavaScript program to get the name of a day based on a given date in string format.",
+    "category": "Date",
+    "solution": "// Function to get the name of a day based on a given date\nfunction getDayName(dateString) {\n  const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];\n  const date = new Date(dateString);\n  const dayIndex = date.getDay();\n  return daysOfWeek[dayIndex];\n}\n\n// Example usage:\nconst inputDate = '2024-05-10'; // May 10, 2024\nconsole.log('Day Name:', getDayName(inputDate));"
+  },
+  {
+    "problem": "Write a JavaScript function to get time differences in months between two dates.",
+    "category": "Date",
+    "solution": "// Function to get time differences in months between two dates\nfunction getMonthsDifference(startDate, endDate) {\n  const start = new Date(startDate);\n  const end = new Date(endDate);\n  const yearsDiff = end.getFullYear() - start.getFullYear();\n  const monthsDiff = end.getMonth() - start.getMonth();\n  return yearsDiff * 12 + monthsDiff;\n}\n\n// Example usage:\nconst startDate = '2023-03-15';\nconst endDate = '2024-08-20';\nconsole.log('Months Difference:', getMonthsDifference(startDate, endDate));"
+  },
+  {
+    "problem": "Write a JavaScript function to get time differences in minutes and hours between two dates.",
+    "category": "Date",
+    "solution": "// Function to get time differences in minutes and hours between two dates\nfunction getTimeDifference(start, end) {\n  const startTime = new Date(start);\n  const endTime = new Date(end);\n  const diffInMs = endTime - startTime;\n  const diffInMinutes = Math.floor(diffInMs / (1000 * 60));\n  const diffInHours = Math.floor(diffInMinutes / 60);\n  return { minutes: diffInMinutes, hours: diffInHours };\n}\n\n// Example usage:\nconst startDate = '2024-05-01T09:00:00';\nconst endDate = '2024-05-01T12:30:00';\nconsole.log('Time Difference:', getTimeDifference(startDate, endDate));"
+  },
+  {
+    "problem": "Validate Bangladeshi Phone Number.",
+    "category": "RegX",
+    "solution": "// Function to validate Bangladeshi phone number using RegEx\nfunction isValidPhoneNumber(number) {\n  const regex = /^(?:\\+?88)?01[13-9]\\d{8}$/;\n  return regex.test(number);\n}\n\n// Example usage:\nconst phoneNumber1 = '01712345678';\nconst phoneNumber2 = '+8801712345678';\nconst phoneNumber3 = '0187654321';\nconsole.log('Phone Number 1:', isValidPhoneNumber(phoneNumber1));\nconsole.log('Phone Number 2:', isValidPhoneNumber(phoneNumber2));\nconsole.log('Phone Number 3:', isValidPhoneNumber(phoneNumber3));"
+  },
+  {
+    "problem": "Replace HTML Tags.",
+    "category": "RegX",
+    "solution": "// Function to replace HTML tags with empty string using RegEx\nfunction replaceHTMLTags(htmlString) {\n  const regex = /<[^>]*>/g;\n  return htmlString.replace(regex, '');\n}\n\n// Example usage:\nconst htmlString = '<p>This is <b>bold</b> and <i>italic</i> text.</p>';\nconsole.log('Replaced HTML Tags:', replaceHTMLTags(htmlString));"
+  },
+
+  {
+    "problem": "Write a JavaScript program to search a date within a string.",
+    "category": "RegX",
+    "solution": "// Function to search a date within a string using RegEx\nfunction searchDate(str) {\n  const regex = /\\b(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[0-2])-(\\d{4})\\b/g;\n  return str.match(regex);\n}\n\n// Example usage:\nconst text = 'The event will take place on 05-12-2024 and 12-31-2024';\nconsole.log('Dates found:', searchDate(text));"
+  },
+  {
+    "problem": "write a js function to check validity of an email address.",
+    "category": "RegX",
+    "solution": "// Function to check validity of an email address using RegEx\nfunction isValidEmail(email) {\n  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;\n  return regex.test(email);\n}\n\n// Example usage:\nconst email1 = 'example@email.com';\nconst email2 = 'invalid-email@';\nconsole.log('Email 1:', isValidEmail(email1));\nconsole.log('Email 2:', isValidEmail(email2));"
+  },
+  {
+    "problem": "write a js function to check validity of a password (contains at least 8 characters, number, uppercase letter, lowercase letter and special character).",
+    "category": "RegX",
+    "solution": "// Function to check validity of a password using RegEx\nfunction isValidPassword(password) {\n  const regex = /^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$/;\n  return regex.test(password);\n}\n\n// Example usage:\nconst password1 = 'StrongPassword123!';\nconst password2 = 'weakpass';\nconsole.log('Password 1:', isValidPassword(password1));\nconsole.log('Password 2:', isValidPassword(password2));"
+  },
+  {
+    "problem": "Write a JavaScript function to check whether a given value is a valid URL or not.",
+    "category": "RegX",
+    "solution": "// Function to check validity of a URL using RegEx\nfunction isValidURL(url) {\n  const regex = /^(https?:\\/\\/)?([\\w.-]+)\\.([a-zA-Z]{2,6})(:[0-9]{1,5})?(\\/\\S*)?$/;\n  return regex.test(url);\n}\n\n// Example usage:\nconst url1 = 'https://www.example.com';\nconst url2 = 'invalid-url.com';\nconsole.log('URL 1:', isValidURL(url1));\nconsole.log('URL 2:', isValidURL(url2));"
+  },
+  {
+    "problem": "Validate Date Format.",
+    "category": "RegX",
+    "solution": "// Function to validate date format using RegEx\nfunction isValidDateFormat(dateString) {\n  const regex = /^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[0-2])-(\\d{4})$/;\n  return regex.test(dateString);\n}\n\n// Example usage:\nconst date1 = '05-12-2024';\nconst date2 = '12/31/2024';\nconsole.log('Date 1:', isValidDateFormat(date1));\nconsole.log('Date 2:', isValidDateFormat(date2));"
+  },
+
+  {
+    "problem": "Student Grades Calculation",
+    "category": "Map",
+    "solution": "// Student Grades Management using Map\nconst studentGrades = new Map();\n\n// Function to add new students and grades\nfunction addStudentGrade(name, grade) {\n  studentGrades.set(name, grade);\n}\n\n// Function to calculate average grade of all students\nfunction calculateAverageGrade() {\n  let sum = 0;\n  for (let grade of studentGrades.values()) {\n    sum += grade;\n  }\n  return sum / studentGrades.size;\n}\n\n// Function to find highest grade\nfunction findHighestGrade() {\n  let highest = -Infinity;\n  for (let grade of studentGrades.values()) {\n    if (grade > highest) {\n      highest = grade;\n    }\n  }\n  return highest;\n}\n\n// Function to find lowest grade\nfunction findLowestGrade() {\n  let lowest = Infinity;\n  for (let grade of studentGrades.values()) {\n    if (grade < lowest) {\n      lowest = grade;\n    }\n  }\n  return lowest;\n}\n\n// Example usage:\naddStudentGrade('Alice', 85);\naddStudentGrade('Bob', 72);\naddStudentGrade('Charlie', 90);\nconsole.log('Average Grade:', calculateAverageGrade());\nconsole.log('Highest Grade:', findHighestGrade());\nconsole.log('Lowest Grade:', findLowestGrade());"
+  },
+  {
+    "problem": "Word Frequency Counter",
+    "category": "Map",
+    "solution": "// Word Frequency Counter using Map\nfunction countWordFrequency(sentence) {\n  const words = sentence.toLowerCase().match(/\\w+/g);\n  const frequencyMap = new Map();\n  if (words) {\n    for (let word of words) {\n      frequencyMap.set(word, frequencyMap.get(word) + 1 || 1);\n    }\n  }\n  return frequencyMap;\n}\n\n// Example usage:\nconst sentence = 'This is a sample sentence. Sentence example.';\nconsole.log('Word Frequency:', countWordFrequency(sentence));"
+  },
+  {
+    "problem": "Product Inventory Management",
+    "category": "Map",
+    "solution": "// Product Inventory Management using Map\nconst productInventory = new Map();\n\n// Function to add new products\nfunction addProduct(productId, productName, quantity) {\n  productInventory.set(productId, { name: productName, quantity: quantity });\n}\n\n// Function to update product quantity\nfunction updateProductQuantity(productId, newQuantity) {\n  if (productInventory.has(productId)) {\n    const product = productInventory.get(productId);\n    product.quantity = newQuantity;\n  }\n}\n\n// Function to remove product\nfunction removeProduct(productId) {\n  productInventory.delete(productId);\n}\n\n// Example usage:\naddProduct(1, 'Product A', 10);\naddProduct(2, 'Product B', 20);\nupdateProductQuantity(1, 15);\nremoveProduct(2);\nconsole.log('Product Inventory:', productInventory);"
+  },
+  {
+    "problem": "User Preferences Storage",
+    "category": "Map",
+    "solution": "// User Preferences Storage using Map\nconst userPreferences = new Map();\n\n// Function to add new user preferences\nfunction addUserPreferences(userId, preferences) {\n  userPreferences.set(userId, preferences);\n}\n\n// Function to update user preferences\nfunction updateUserPreferences(userId, newPreferences) {\n  if (userPreferences.has(userId)) {\n    userPreferences.set(userId, newPreferences);\n  }\n}\n\n// Function to retrieve user preferences\nfunction getUserPreferences(userId) {\n  return userPreferences.get(userId);\n}\n\n// Example usage:\naddUserPreferences('user1', { theme: 'dark', language: 'en' });\nupdateUserPreferences('user1', { theme: 'light' });\nconsole.log('User Preferences:', getUserPreferences('user1'));\n"
+  },
+  {
+    "problem": "Event Registration System",
+    "category": "Map",
+    "solution": "// Event Registration System using Map\nconst eventRegistrations = new Map();\n\n// Function to add participants to events\nfunction addParticipant(eventName, participant) {\n  if (eventRegistrations.has(eventName)) {\n    eventRegistrations.get(eventName).push(participant);\n  } else {\n    eventRegistrations.set(eventName, [participant]);\n  }\n}\n\n// Function to remove participant from event\nfunction removeParticipant(eventName, participant) {\n  if (eventRegistrations.has(eventName)) {\n    const participants = eventRegistrations.get(eventName);\n    const index = participants.indexOf(participant);\n    if (index !== -1) {\n      participants.splice(index, 1);\n    }\n  }\n}\n\n// Function to display participants for an event\nfunction displayParticipants(eventName) {\n  return eventRegistrations.get(eventName);\n}\n\n// Example usage:\naddParticipant('Conference', 'Alice');\naddParticipant('Conference', 'Bob');\naddParticipant('Seminar', 'Charlie');\nremoveParticipant('Conference', 'Alice');\nconsole.log('Participants for Conference:', displayParticipants('Conference'));\nconsole.log('Participants for Seminar:', displayParticipants('Seminar'));\n"
+  },
+
+  {
+    "problem": "Context Switching with Call/Apply:Create an object with a method that uses this. Then, create another object and use call or apply to invoke the method of the first object with the context of the second object.",
+    "category": "this",
+    "solution": "// Context Switching with Call/Apply\nconst obj1 = {\n  name: 'Object 1',\n  greet: function() {\n    console.log(`Hello, ${this.name}!`);\n  }\n};\n\nconst obj2 = {\n  name: 'Object 2'\n};\n\nobj1.greet.call(obj2);\n"
+  },
+  {
+    "problem": "Arrow Functions and Lexical Scope:Explore how arrow functions differ from regular functions in terms of their binding of this. Create a scenario where using an arrow function changes the expected behavior of this.",
+    "category": "this",
+    "solution": "// Arrow Functions and Lexical Scope\nfunction Person(name) {\n  this.name = name;\n  this.sayHello = () => {\n    console.log(`Hello, ${this.name}!`);\n  };\n}\n\nconst person1 = new Person('Alice');\nperson1.sayHello();\n"
+  },
+  {
+    "problem": "Prototype Methods and this:Define a constructor function with a prototype method that uses this. Create multiple instances of the constructor and observe how this behaves in the context of prototype methods.",
+    "category": "this",
+    "solution": "// Prototype Methods and this\nfunction Counter() {\n  this.count = 0;\n}\n\nCounter.prototype.increment = function() {\n  this.count++;\n  console.log('Count:', this.count);\n};\n\nconst counter1 = new Counter();\nconst counter2 = new Counter();\ncounter1.increment();\ncounter2.increment();\n"
+  },
+  {
+    "problem": "Event Handlers and this:Create an HTML element and attach an event listener to it using JavaScript. Inside the event handler function, examine how this refers to the element and how it changes if you use arrow functions or bind the event handler.",
+    "category": "this",
+    "solution": "// Event Handlers and this\nconst button = document.getElementById('myButton');\nbutton.addEventListener('click', function() {\n  console.log('Button clicked:', this);\n});\n\n// With Arrow Function\n// button.addEventListener('click', () => {\n//   console.log('Button clicked:', this);\n// });\n"
+  },
+  {
+    "problem": "setTimeout and setInterval:Use setTimeout and setInterval to create functions that use this. Observe how this behaves inside these asynchronous functions and how it relates to the global object.",
+    "category": "this",
+    "solution": "// setTimeout and setInterval\nconst timerObj = {\n  seconds: 0,\n  start: function() {\n    setInterval(() => {\n      this.seconds++;\n      console.log('Seconds elapsed:', this.seconds);\n    }, 1000);\n  }\n};\n\ntimerObj.start();\n"
+  },
+  {
+    "problem": "DOM Manipulation and this:Create a small HTML document with elements. Write JavaScript functions that manipulate the DOM and use this within these functions. Pay attention to how this is bound in different contexts.",
+    "category": "this",
+    "solution": "// DOM Manipulation and this\nconst toggleBtn = document.getElementById('toggleBtn');\nconst box = document.getElementById('box');\n\ntoggleBtn.addEventListener('click', function() {\n  this.classList.toggle('active');\n  box.style.display = this.classList.contains('active') ? 'block' : 'none';\n});\n"
+  },
+  {
+    "problem": "Class Methods and this:Define a class with methods that use this. Instantiate objects from the class and call these methods to understand how this works within class instances.",
+    "category": "this",
+    "solution": "// Class Methods and this\nclass Car {\n  constructor(make) {\n    this.make = make;\n  }\n\n  displayMake() {\n    console.log('Car Make:', this.make);\n  }\n}\n\nconst car1 = new Car('Toyota');\ncar1.displayMake();\n"
+  },
+  {
+    "problem": "Bind, Call, and Apply Methods:Experiment with bind, call, and apply methods to explicitly set the context of this in different scenarios. Explore how these methods affect the behavior of functions and methods in JavaScript.",
+    "category": "this",
+    "solution": "// Bind, Call, and Apply Methods\nconst obj = {\n  name: 'Object',\n  greet: function(greeting) {\n    console.log(`${greeting}, ${this.name}!`);\n  }\n};\n\nconst obj2 = {\n  name: 'Another Object'\n};\n\nconst boundFunc = obj.greet.bind(obj2);\nboundFunc('Hello');\n// obj.greet.call(obj2, 'Hello');\n// obj.greet.apply(obj2, ['Hello']);\n"
+  },
+
+  {
+    "problem": "Chaining Multiple Asynchronous Operations:Create a chain of asynchronous operations using Promise.resolve().then() to perform tasks such as fetching data from an API, processing the data, and then updating the DOM based on the processed data.",
+    "category": "asynchronous",
+    "solution": "// Chaining Multiple Asynchronous Operations using async/await\nasync function fetchData() {\n  try {\n    const response = await fetch('https://api.example.com/data');\n    const data = await response.json();\n    // Process data\n    const processedData = processData(data);\n    // Update DOM\n    updateDOM(processedData);\n  } catch (error) {\n    console.error('Error fetching data:', error);\n  }\n}\n\nfetchData();\n"
+  },
+  {
+    "problem": "Conditional Execution Using Promises:Use Promise.resolve().then() to conditionally execute asynchronous operations based on the result of a previous operation. For example, fetch user data, check if the user is logged in, and then perform additional actions based on their login status.",
+    "category": "Promises",
+    "solution": "// Conditional Execution Using Promises\nfetchUserData()\n  .then((userData) => {\n    if (userData.loggedIn) {\n      return performLoggedInActions(userData);\n    } else {\n      return performGuestActions(userData);\n    }\n  })\n  .then(() => {\n    console.log('All actions completed');\n  })\n  .catch((error) => {\n    console.error('Error:', error);\n  });\n"
+  },
+  {
+    "problem": "Error Handling with Promises:Practice error handling using Promise.resolve().then().catch() to manage exceptions in asynchronous code. Simulate scenarios where promises may be rejected (e.g., network errors, invalid data) and handle these errors appropriately.",
+    "category": "Promises",
+    "solution": "// Error Handling with Promises\nfetchData()\n  .then((data) => {\n    processData(data);\n  })\n  .catch((error) => {\n    console.error('Error fetching or processing data:', error);\n  });\n"
+  },
+  {
+    "problem": "Parallel Promises Execution:Create multiple promises using Promise.resolve() and execute them in parallel using Promise.all(). Use .then() to handle the combined results once all promises are resolved, demonstrating concurrent operations.",
+    "category": "Promises",
+    "solution": "// Parallel Promises Execution using Promise.all()\nconst promise1 = fetchResource1();\nconst promise2 = fetchResource2();\n\nPromise.all([promise1, promise2])\n  .then((results) => {\n    const [result1, result2] = results;\n    processResults(result1, result2);\n  })\n  .catch((error) => {\n    console.error('Error:', error);\n  });\n"
+  },
+  {
+    "problem": "Sequential Data Processing:Implement sequential data processing using Promise.resolve().then() to ensure that asynchronous tasks are executed in a specific order. For instance, process an array of items one by one, with each processing step depending on the result of the previous one.",
+    "category": "Promises",
+    "solution": "// Sequential Data Processing using async/await\nasync function processItemsSequentially(items) {\n  for (const item of items) {\n    try {\n      await processItem(item);\n    } catch (error) {\n      console.error('Error processing item:', error);\n    }\n  }\n  console.log('All items processed');\n}\n\nprocessItemsSequentially(itemsArray);\n"
+  },
+
+  {
+    "problem": "Promise Composition with Async Functions:Use async functions along with Promise.resolve().then() to compose complex asynchronous workflows. Create a chain of async functions that perform tasks like data fetching, processing, and updating the UI, ensuring proper error handling at each step.",
+    "category": "asynchronous",
+    "solution": "// Promise Composition with Async Functions\nasync function fetchData(url) {\n  // Simulate fetching data\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      const data = { id: 1, name: 'Example Data' };\n      resolve(data);\n    }, 1000);\n  });\n}\n\nasync function processData(data) {\n  // Simulate processing data\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      data.processed = true;\n      resolve(data);\n    }, 500);\n  });\n}\n\nasync function updateUI(data) {\n  // Simulate updating UI\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      console.log('UI Updated with Data:', data);\n      resolve();\n    }, 200);\n  });\n}\n\nasync function main() {\n  try {\n    const fetchedData = await fetchData('https://example.com/api/data');\n    const processedData = await processData(fetchedData);\n    await updateUI(processedData);\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\n\nmain();\n"
+  },
+  {
+    "problem": "Caching Using Promises:Implement a caching mechanism using promises. Use Promise.resolve().then() to check if data is available in the cache. If not, fetch the data asynchronously, store it in the cache, and then return the cached data.",
+    "category": "asynchronous",
+    "solution": "// Caching Using Promises\nconst cache = {};\n\nfunction fetchData(url) {\n  if (cache[url]) {\n    return Promise.resolve(cache[url]);\n  }\n\n  return new Promise((resolve, reject) => {\n    // Simulate fetching data\n    setTimeout(() => {\n      const data = { id: 1, name: 'Cached Data' };\n      cache[url] = data;\n      resolve(data);\n    }, 1000);\n  });\n}\n\n// Example usage:\nfetchData('https://example.com/api/data').then((data) => {\n  console.log('Fetched Data:', data);\n});\n"
+  },
+  {
+    "problem": "Dynamic Promise Chaining: Generate a dynamic chain of promises based on runtime conditions using Promise.resolve().then(). Depending on certain conditions or input parameters, construct a chain of promises to perform different tasks in sequence.",
+    "category": "asynchronous",
+    "solution": "// Dynamic Promise Chaining\nconst tasks = [task1, task2, task3]; // Assume tasks are defined elsewhere\nlet promiseChain = Promise.resolve();\n\nfor (const task of tasks) {\n  promiseChain = promiseChain.then(() => task());\n}\n\npromiseChain\n  .then(() => {\n    console.log('All tasks completed');\n  })\n  .catch((error) => {\n    console.error('Error:', error);\n  });\n"
+  },
+  {
+    "problem": "Parallel Promises with Dynamic Input: Create a scenario where you need to execute multiple asynchronous tasks in parallel, but the number of tasks is determined dynamically at runtime. Use Promise.resolve().then() along with Promise.all() to handle this dynamic parallelism.",
+    "category": "asynchronous",
+    "solution": "// Parallel Promises with Dynamic Input\nfunction fetchData(id) {\n  // Simulate fetching data based on ID\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      const data = `Data for ID ${id}`;\n      resolve(data);\n    }, Math.random() * 1000);\n  });\n}\n\nfunction main(ids) {\n  const promises = ids.map(id => fetchData(id));\n\n  Promise.all(promises)\n    .then(results => {\n      console.log('Fetched Data:', results);\n    })\n    .catch(error => {\n      console.error('Error:', error);\n    });\n}\n\n// Example usage:\nmain([1, 2, 3, 4, 5]);\n"
+  },
+  {
+    "problem": "Promise Throttling and Debouncing: Explore how promises can be used for throttling or debouncing operations. Implement a scenario where you have a stream of events (e.g., user input), and you want to limit the rate of asynchronous operations using promises to avoid overloading the system.",
+    "category": "asynchronous",
+    "solution": "// Promise Throttling and Debouncing\nfunction debounce(func, delay) {\n  let timeoutId;\n  return function(...args) {\n    if (timeoutId) {\n      clearTimeout(timeoutId);\n    }\n    timeoutId = setTimeout(() => {\n      func.apply(this, args);\n    }, delay);\n  };\n}\n\nfunction fetchData() {\n  // Simulate fetching data\n  console.log('Fetching data...');\n}\n\nconst debouncedFetch = debounce(fetchData, 300);\n\n// Example usage:\nwindow.addEventListener('input', debouncedFetch);\n"
+  },
+
+  {
+    "problem": "Sequential Timeout: Create a function that uses setTimeout to execute multiple tasks sequentially with varying delay times.",
+    "category": "setTimeout",
+    "solution": "// Sequential Timeout\nfunction sequentialTimeout(tasks) {\n  let index = 0;\n  function next() {\n    if (index < tasks.length) {\n      const task = tasks[index];\n      const delay = task.delay || 0;\n      setTimeout(() => {\n        task.func();\n        index++;\n        next();\n      }, delay);\n    }\n  }\n  next();\n}\n\n// Example usage:\nconst tasks = [\n  { func: () => console.log('Task 1'), delay: 1000 },\n  { func: () => console.log('Task 2'), delay: 2000 },\n  { func: () => console.log('Task 3'), delay: 3000 }\n];\n\nsequentialTimeout(tasks);\n"
+  },
+  {
+    "problem": "Recursive Timeout: Implement a recursive function that uses setTimeout to create a delay between each recursion.",
+    "category": "setTimeout",
+    "solution": "// Recursive Timeout\nfunction recursiveTimeout(countdown) {\n  if (countdown === 0) {\n    console.log('Done!');\n  } else {\n    console.log(countdown);\n    setTimeout(() => {\n      recursiveTimeout(countdown - 1);\n    }, 1000);\n  }\n}\n\n// Example usage:\nrecursiveTimeout(5);\n"
+  },
+  {
+    "problem": "Clear Timeout: Write a program that demonstrates clearing a timeout using clearTimeout to stop a delayed function execution.",
+    "category": "setTimeout",
+    "solution": "// Clear Timeout\nconst timeoutId = setTimeout(() => {\n  console.log('Delayed function executed');\n}, 2000);\n\n// Clear the timeout\nclearTimeout(timeoutId);\n"
+  },
+  {
+    "problem": "Interval with Timeout: Combine setTimeout and setInterval to create a loop that executes a function at regular intervals with delays.",
+    "category": "setTimeout",
+    "solution": "// Interval with Timeout\nlet count = 0;\nconst intervalId = setInterval(() => {\n  console.log('Counter:', ++count);\n  if (count >= 5) {\n    clearInterval(intervalId);\n  }\n}, 1000);\n"
+  },
+  {
+    "problem": "Promise Timeout: Create a function that returns a promise and times out if it doesn't resolve within a specified time using setTimeout.",
+    "category": "setTimeout",
+    "solution": "// Promise Timeout\nfunction promiseWithTimeout(delay) {\n  return new Promise((resolve, reject) => {\n    setTimeout(() => {\n      reject('Timeout exceeded');\n    }, delay);\n  });\n}\n\n// Example usage:\npromiseWithTimeout(3000)\n  .then(() => console.log('Promise resolved'))\n  .catch(error => console.error('Error:', error));\n"
+  },
+  {
+    "problem": "Dynamic Timeout: Implement a function that accepts a delay time as a parameter and executes a task after that specific delay using setTimeout.",
+    "category": "setTimeout",
+    "solution": "// Dynamic Timeout\nfunction dynamicTimeout(delay, task) {\n  setTimeout(() => {\n    task();\n  }, delay);\n}\n\n// Example usage:\ndynamicTimeout(2000, () => console.log('Task executed after 2 seconds'));\n"
+  },
+  {
+    "problem": "Batch Processing with Timeout: Develop a program that batches a set of tasks and processes them asynchronously with timeouts between batches.",
+    "category": "setTimeout",
+    "solution": "// Batch Processing with Timeout\nfunction batchProcessing(tasks, batchSize, delay) {\n  let index = 0;\n  function processBatch() {\n    const batch = tasks.slice(index, index + batchSize);\n    if (batch.length > 0) {\n      console.log('Processing batch:', batch);\n      batch.forEach((task, i) => {\n        setTimeout(() => {\n          task();\n        }, delay * i);\n      });\n      index += batchSize;\n      setTimeout(processBatch, delay * batchSize);\n    }\n  }\n  processBatch();\n}\n\n// Example usage:\nconst tasks = [\n  () => console.log('Task 1'),\n  () => console.log('Task 2'),\n  () => console.log('Task 3'),\n  () => console.log('Task 4'),\n  () => console.log('Task 5'),\n  () => console.log('Task 6')\n];\n\nbatchProcessing(tasks, 3, 1000);\n"
+  },
+  {
+    "problem": "Event Queue and Timeout: Experiment with setTimeout to understand how it interacts with the event queue in a single-threaded environment.",
+    "category": "setTimeout",
+    "solution": "// Event Queue and Timeout\nconsole.log('Start');\nsetTimeout(() => {\n  console.log('Timeout 1');\n}, 0);\nsetTimeout(() => {\n  console.log('Timeout 2');\n}, 0);\nconsole.log('End');\n"
+  },
+  {
+    "problem": "Animation with Timeout: Build a simple animation using setTimeout to update the DOM elements at regular intervals.",
+    "category": "setTimeout",
+    "solution": "// Animation with Timeout\nconst box = document.getElementById('box');\nlet position = 0;\nfunction animate() {\n  position += 5;\n  box.style.left = position + 'px';\n  if (position < 200) {\n    setTimeout(animate, 50);\n  }\n}\nanimate();\n"
+  },
+  {
+    "problem": "Multi-step Process: Create a multi-step process where each step is executed asynchronously using setTimeout, and subsequent steps depend on the completion of previous steps.",
+    "category": "setTimeout",
+    "solution": "// Multi-step Process\nfunction step1() {\n  console.log('Step 1 completed');\n  setTimeout(step2, 1000);\n}\n\nfunction step2() {\n  console.log('Step 2 completed');\n  setTimeout(step3, 1000);\n}\n\nfunction step3() {\n  console.log('Step 3 completed');\n  console.log('Process finished');\n}\n\n// Start the process\nstep1();\n"
+  },
+
+  {
+    "problem": "Dynamic Animation Control: Create an animation function that uses setInterval to update the position of an element dynamically. Allow users to control animation speed using setInterval, allowing them to speed up or slow down the animation.",
+    "category": "setInterval",
+    "solution": "// Dynamic Animation Control\nconst box = document.getElementById('box');\nlet position = 0;\nlet speed = 10; // Speed in pixels per interval\nlet intervalId;\n\nfunction startAnimation() {\n  intervalId = setInterval(() => {\n    position += speed;\n    box.style.left = position + 'px';\n  }, 1000 / 60); // 60 FPS\n}\n\nfunction stopAnimation() {\n  clearInterval(intervalId);\n}\n\n// Example usage:\nstartAnimation(); // Start animation\nsetTimeout(stopAnimation, 5000); // Stop after 5 seconds\n"
+  },
+  {
+    "problem": "Interactive Countdown Timer: Implement a countdown timer using setInterval. Allow users to input the countdown duration dynamically and display the timer on the screen. Provide options to start, pause, resume, and reset the timer.",
+    "category": "setInterval",
+    "solution": "// Interactive Countdown Timer\nlet countdown; // Countdown value in seconds\nlet timerId;\n\nfunction startTimer(duration) {\n  countdown = duration;\n  timerId = setInterval(updateTimer, 1000);\n}\n\nfunction updateTimer() {\n  if (countdown > 0) {\n    console.log(countdown);\n    countdown--;\n  } else {\n    clearInterval(timerId);\n    console.log('Time's up!');\n  }\n}\n\n// Example usage:\nstartTimer(60); // Start a 1-minute countdown\n"
+  },
+  {
+    "problem": "Continuous Scrolling Banner: Create a scrolling banner effect using setInterval to continuously shift text or images horizontally across the screen. Allow users to control the speed of scrolling using setInterval parameters.",
+    "category": "setInterval",
+    "solution": "// Continuous Scrolling Banner\nconst banner = document.getElementById('banner');\nlet position = 0;\nlet speed = 2; // Speed in pixels per interval\nlet intervalId;\n\nfunction startScrolling() {\n  intervalId = setInterval(() => {\n    position += speed;\n    banner.style.transform = `translateX(-${position}px)`;\n  }, 1000 / 60); // 60 FPS\n}\n\nfunction stopScrolling() {\n  clearInterval(intervalId);\n}\n\n// Example usage:\nstartScrolling(); // Start scrolling\nsetTimeout(stopScrolling, 10000); // Stop after 10 seconds\n"
+  },
+  {
+    "problem": "Game Development - Time-based Challenges: Build a game where challenges appear at regular intervals using setInterval. Players must complete tasks within the given time frame to progress, adding complexity as the game advances.",
+    "category": "setInterval",
+    "solution": "// Game Development - Time-based Challenges\nlet challengeId;\n\nfunction startGame() {\n  let timeLeft = 30; // Initial time in seconds\n  challengeId = setInterval(() => {\n    if (timeLeft > 0) {\n      console.log('Challenge time left:', timeLeft);\n      timeLeft--;\n    } else {\n      clearInterval(challengeId);\n      console.log('Game over!');\n    }\n  }, 1000);\n}\n\n// Example usage:\nstartGame(); // Start the game\n"
+  },
+
+  {
+    "problem": "Dynamic Content Highlighting: Develop a feature that highlights specific content elements (such as text or images) in a webpage at regular intervals using setInterval. Allow users to customize the highlighting duration and style.",
+    "category": "setInterval",
+    "solution": "// Dynamic Content Highlighting\nconst elementsToHighlight = document.querySelectorAll('.highlight');\nlet index = 0;\nconst intervalId = setInterval(() => {\n  elementsToHighlight[index].classList.toggle('highlighted');\n  index = (index + 1) % elementsToHighlight.length;\n}, 2000);\n"
+  },
+  {
+    "problem": "Geolocation Tracker: Build a geolocation tracker that updates and displays the user's current location at regular intervals using setInterval. Visualize the location changes on a map or display relevant data based on location.",
+    "category": "setInterval",
+    "solution": "// Geolocation Tracker\nfunction trackLocation() {\n  navigator.geolocation.getCurrentPosition(position => {\n    const { latitude, longitude } = position.coords;\n    console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);\n  });\n}\n\nsetInterval(trackLocation, 5000); // Update every 5 seconds\n"
+  },
+  {
+    "problem": "Interval-based Quiz System: Design a quiz application where questions are presented at intervals using setInterval. Allow users to answer questions within a specific time frame, and automatically move to the next question when the time elapses.",
+    "category": "setInterval",
+    "solution": "// Interval-based Quiz System\nconst questions = ['Question 1', 'Question 2', 'Question 3'];\nlet index = 0;\nconst intervalId = setInterval(() => {\n  const question = questions[index];\n  console.log('Question:', question);\n  index = (index + 1) % questions.length;\n}, 10000); // Change question every 10 seconds\n"
+  },
+  {
+    "problem": "Dynamic Charts and Graphs: Create interactive charts or graphs (e.g., line charts, bar graphs) that update dynamically based on changing data fetched at regular intervals using setInterval. Provide options to customize chart types and data ranges.",
+    "category": "setInterval",
+    "solution": "// Dynamic Charts and Graphs\nconst chartData = [10, 20, 30, 40, 50];\nlet index = 0;\nconst intervalId = setInterval(() => {\n  const newDataPoint = Math.floor(Math.random() * 100) + 1;\n  chartData.push(newDataPoint);\n  // Update chart with new data\n  console.log('Updated chart data:', chartData);\n  index++;\n  if (index >= 5) {\n    clearInterval(intervalId);\n    console.log('Chart data fetching complete');\n  }\n}, 2000);\n"
+  }
+]
+
+
+
