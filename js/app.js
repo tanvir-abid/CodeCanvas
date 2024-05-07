@@ -46,7 +46,10 @@ function callNavAndMainElementFunction(){
     let mainContainer = createMainElements(data);
     container.appendChild(mainContainer);
   })
-  .catch(error => console.error('Error fetching data:', error));
+  .catch(error => {
+    console.error('Error fetching data:', error);
+    createModal("Something went wrong in connection", true);
+  });
 
   // Call the function to create the button
   createScrollToTopButton();
@@ -217,8 +220,11 @@ function createNavbar() {
   const profileSynopsis = document.createElement('div');
   profileSynopsis.classList.add('profile-synopsis');
 
-  const synopsisText = document.createElement('p');
-  synopsisText.textContent = 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to.';
+  const synopsisText = document.createElement('div');
+  synopsisText.innerHTML = `
+    <p>My professional journey spans diverse skills from data cleaning to front-end Web development, intertwined with expertise in search engine optimization, earning me recognition as <strong>the best SEO expert</strong>. With six months of content writing experience in various areas like Amazon affiliate marketing and blog posts, I've also established myself as <strong>the best content writer</strong>, delivering engaging narratives.</p>
+    <p>In web development, I'm recognized as <strong>the best developer</strong>, specializing in JavaScript, for designing intuitive <strong>screen-responsive</strong> interfaces and developing <strong>SEO-friendly</strong> web structures. Academically, I hold a master's in applied linguistics and TESOL with honors, complemented by certifications in tools like Microsoft Office. My commitment to excellence drives me, and I seek roles in web development and SEO to apply my multidisciplinary expertise for organizational success.</p>
+  `;
 
   profileSynopsis.appendChild(synopsisText);
 
@@ -328,7 +334,6 @@ function createMainElements(data) {
 
     const toggleBtn = document.getElementById('category-toggle-btn');
     toggleBtn.addEventListener('click', ()=>{
-      console.log('clicked.');
 
       if(categoryDiv.classList.contains('disappear')){
         categoryDiv.classList.remove('disappear');
@@ -536,7 +541,6 @@ function populateProblemsContainer(data) {
     feedbackSpan.innerHTML = "<i class='bx bx-message-square-dots' ></i>";
     codeActionBtnContainer.appendChild(feedbackSpan);
     feedbackSpan.addEventListener('click', ()=>{
-      console.log(problemObj);
       createFeedbackModal(problemObj)
     });
     
@@ -572,7 +576,6 @@ function populateProblemsContainer(data) {
       createModal('Code copied to clipboard!');
     });
 
-
     // Append problem-statement and solution to card div
     cardDiv.appendChild(problemStatementDiv);
     cardDiv.appendChild(solutionDiv);
@@ -591,10 +594,14 @@ function populateProblemsContainer(data) {
 
 
 
-function createModal(message) {
+function createModal(message, warning = false) {
   // Create modal container
   const modalContainer = document.createElement('div');
   modalContainer.classList.add('modal');
+
+  if(warning){
+    modalContainer.classList.add('warning');
+  }
 
   // Create modal header
   const modalHeader = document.createElement('div');
@@ -653,8 +660,7 @@ function createScrollToTopButton() {
     }
   });
 }
-
-
+//--------------------------//
 function createCodeModal() {
   // Create modal container
   const modalContainer = document.createElement('div');
@@ -757,6 +763,25 @@ function createFeedbackModal(data) {
 
   // Create form
   const form = document.createElement('form');
+  form.method = 'POST';
+  // Create a hidden input element
+  const hiddenInput = document.createElement('input');
+  hiddenInput.type = 'hidden';
+  hiddenInput.name = 'apikey';
+  hiddenInput.value = 'c8fb6cf0-85ce-49d9-be34-cbe21e1f7c9b';
+  form.appendChild(hiddenInput);
+
+  const formNameInput = document.createElement('input');
+  formNameInput.type = 'hidden';
+  formNameInput.name = 'from_name';
+  formNameInput.value = 'CodeCanvas';
+  form.appendChild(formNameInput);
+
+  const subject = document.createElement('input');
+  subject.type = 'hidden';
+  subject.name = 'subject';
+  subject.value = 'New Feedback';
+  form.appendChild(subject);
 
   // Create fieldset for name
   const nameFieldset = document.createElement('fieldset');
@@ -820,16 +845,38 @@ function createFeedbackModal(data) {
 
   // Add submit event listener to form
   form.addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent default form submission
-    const formData = new FormData(form);
-    const formDataObject = {};
-    formData.forEach((value, key) => {
-      formDataObject[key] = value;
-    });
-    Object.assign(formDataObject, data);
+    e.preventDefault(); 
 
-    console.log(formDataObject); 
-    createModal('Success !!')
+    submitBtn.innerHTML = `<i class='bx bx-loader bx-spin' ></i>`;
+
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData);
+    Object.assign(object, data);
+    object.subject = `New Feedback From ${object.name}`;
+    const json = JSON.stringify(object);
+
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: json
+    })
+    .then(async (response) => {
+        let json = await response.json();
+        if (response.status == 200) {
+          submitBtn.innerHTML = `<i class="bx bx-paper-plane"></i> Submit`;
+          createModal('Your feedback has sent successfully !!');
+        } else {
+          submitBtn.innerHTML = `<i class="bx bx-paper-plane"></i> Submit`;
+          createModal(json.message, true);
+        }
+    })
+    .catch(error => {
+      submitBtn.innerHTML = `<i class="bx bx-paper-plane"></i> Submit`;
+        createModal("Something went wrong!", true);
+    })
   });
 }
 

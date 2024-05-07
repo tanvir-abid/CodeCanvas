@@ -4,7 +4,7 @@
 }
 
 html {
-  scroll-behavior: smooth; /* Enable smooth scrolling for the entire page */
+  scroll-behavior: smooth; 
 }
 
 
@@ -38,15 +38,15 @@ body{
 }
 
 .icons-container span:nth-child(1) {
-  animation-delay: 0s; /* Delay for the first span */
+  animation-delay: 0s; 
 }
 
 .icons-container span:nth-child(2) {
-  animation-delay: 0.2s; /* Delay for the second span */
+  animation-delay: 0.2s; 
 }
 
 .icons-container span:nth-child(3) {
-  animation-delay: 0.4s; /* Delay for the third span */
+  animation-delay: 0.4s; 
 }
 
 @keyframes wave {
@@ -140,7 +140,6 @@ body{
 }
 
 /* Style for mega-div */
-/* Style for mega-div */
 .mega-div {
   display: flex;
   justify-content: space-between;
@@ -184,7 +183,6 @@ body{
 .profile-details .details{
   display: flex;
   align-items: flex-start;
-  /* gap: 6px; */
 }
 
 .details > div{
@@ -275,9 +273,20 @@ body{
 /* Style for profile-synopsis */
 .profile-synopsis p {
   font-style: italic;
-  color: #27374dc7;
+  color: #27374de7;
   text-align: justify;
   line-height: 25px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.profile-synopsis p strong{
+  color: #d91c42;
+  transition: all 0.3s ease;
+}
+
+.profile-synopsis p strong:hover{
+  text-decoration: underline;
 }
 
 /* Style for profile-social-media */
@@ -354,6 +363,14 @@ body{
   .navbar h1{
     font-size: 22px;
   }
+  .toggle-btn-container{
+    gap: 2px;
+  }
+
+  .navbar button{
+    padding: 5px;
+  }
+
   .navbar button span{
     display: none;
     opacity: 0;
@@ -373,7 +390,8 @@ body{
   .mega-div{
     flex-direction: column;
     padding: 10px;
-    transform: translateY(-1500px);
+    transition: 0.9s ease;
+    transform: translateY(-1800px);
   }
 
   .profile-detail-container{
@@ -392,7 +410,7 @@ body{
   }
 
   .details, .profile-synopsis{
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .skills-container{
@@ -429,7 +447,6 @@ body{
 }
 
 .category-container {
-  border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #314662;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -537,7 +554,6 @@ body{
 /* Style for each card */
 .card {
   border-radius: 8px;
-  margin-bottom: 20px;
   transition: all 0.3s ease;
   animation: moveUp 0.3s ease-in;
   animation-fill-mode: both;
@@ -562,7 +578,7 @@ body{
 
 .problem-statement h3 {
   font-size: 15px;
-  margin-bottom: 5px;
+  padding: 2px 0;
   display: flex;
   align-items: center;
   gap: 3px;
@@ -587,13 +603,6 @@ body{
 }
 
 /* Style for solution code */
-/* .solution {
-  border-radius: 5px;
-  overflow-x: auto;
-  position: relative;
-} */
-
-/* Initially hide the solution div */
 .solution {
   position: relative;
   max-height: 0;
@@ -605,9 +614,28 @@ body{
 
 /* Show the solution div */
 .solution.visible {
-  max-height: 500px; /* Set the maximum height as needed */
+  max-height: 500px;
+  margin-bottom: 10px;
+  overflow-y: auto;
 }
 
+.solution::-webkit-scrollbar {
+  width: 5px; 
+}
+
+.solution::-webkit-scrollbar-track {
+  background-color: #6e95cd;
+  border-radius: 10px; 
+}
+
+.solution::-webkit-scrollbar-thumb {
+  background-color: #d91c42; 
+  border-radius: 10px; 
+}
+
+.solution::-webkit-scrollbar-thumb:hover {
+  background-color: #d7032e; 
+}
 
 .solution .action-btn-container{
   position: absolute;
@@ -674,7 +702,7 @@ body{
     z-index: 999;
     max-width: 250px;
     height: 100%;
-    /* display: none; */
+    border: none;
     transition: all 0.5s ease;
     transform: translateX(0px);
     animation: none;
@@ -718,7 +746,11 @@ body{
   box-shadow: 0 0 10px rgb(199, 232, 202, 0.2);
   z-index: 1000; 
   transition: all 1s ease;
+}
 
+.modal.warning{
+  background-color: #FCAEAE;
+  color: #D80032;
 }
 
 .modal.slideIn{
@@ -742,6 +774,11 @@ body{
   padding: 10px;
 }
 
+@media screen and (max-width: 768px) {
+  .modal-body{
+    font-size: 13px;
+  }
+}
 
 .scroll-to-top-btn {
   position: fixed;
@@ -836,7 +873,7 @@ body{
 
 .mBody {
   padding: 10px;
-  height: 75vh;
+  max-height: 75vh;
 }
 
 .mBody.mBody-two-columns{
@@ -844,6 +881,10 @@ body{
   align-items: flex-start;
   overflow-y: auto;
   overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.mBody.mBody-two-columns pre{
   scrollbar-width: none;
 }
 
@@ -880,6 +921,8 @@ body{
   border-radius: 5px;
   word-wrap: break-word; 
   white-space: pre-wrap; 
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 /* Styling for form-container */
@@ -936,7 +979,7 @@ textarea {
 }
 
 textarea{
-  min-height: 110px;
+  min-height: 130px;
 }
 
 input[type="text"]:focus,
@@ -944,6 +987,13 @@ input[type="email"]:focus,
 textarea:focus{
   border-color: #6e95cd; /* Change border color on focus */
   outline: none;
+}
+
+textarea::placeholder,
+input::placeholder {
+  font-weight: bold;
+  opacity: 0.5;
+  color: #a6bddf;
 }
 
 .form-container button[type="submit"] {
@@ -955,6 +1005,7 @@ textarea:focus{
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3px;
   transition: background-color 0.3s ease;
 }
