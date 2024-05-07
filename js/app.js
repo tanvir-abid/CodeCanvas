@@ -736,6 +736,9 @@ function createFeedbackModal(data) {
   // Create h4 for problem
   const problemHeading = document.createElement('h4');
   problemHeading.textContent = `Concern: ${data.problem}`;
+  if (problemHeading.textContent.length > 120) {
+    problemHeading.textContent = problemHeading.textContent.substring(0, 120) + ' ...';
+  }
 
   // Create pre and code elements for solution
   const solutionPre = document.createElement('pre');
@@ -851,6 +854,21 @@ function createFeedbackModal(data) {
 
     const formData = new FormData(form);
     const object = Object.fromEntries(formData);
+    // Validate form data
+    if (!object.name.trim() || !object.email.trim() || !object.message.trim()) {
+      // Show error message or alert
+      createModal("Please fill in all fields!", true);
+      submitBtn.innerHTML = `<i class="bx bx-paper-plane"></i> Submit`;
+      return;
+    }
+
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailPattern.test(object.email.trim())) {
+      createModal("Please enter a valid email address!", true);
+      submitBtn.innerHTML = `<i class="bx bx-paper-plane"></i> Submit`;
+      return;
+    }
+
     Object.assign(object, data);
     object.subject = `New Feedback From ${object.name}`;
     const json = JSON.stringify(object);
@@ -876,7 +894,7 @@ function createFeedbackModal(data) {
     .catch(error => {
       submitBtn.innerHTML = `<i class="bx bx-paper-plane"></i> Submit`;
         createModal("Something went wrong!", true);
-    })
+    });
   });
 }
 
