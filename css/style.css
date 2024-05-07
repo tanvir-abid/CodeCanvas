@@ -493,6 +493,41 @@ body{
 }
 
 /*==========================*/
+.organise-btn-container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0px;
+}
+
+.organise-btn-container button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  padding: 8px 12px;
+  background-color: #27374D;
+  color: #fff;
+  border: 1px solid #888;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: btn 0.3s ease-in;
+}
+
+@keyframes btn {
+  from{transform: translateX(20px);opacity: 0;}
+  to{transform: translateX(0px); opacity: 1;}
+}
+
+.organise-btn-container button:hover {
+  background-color: #1a2a3d;
+}
+
+.organise-btn-container button span{
+  display: block;
+}
+
 /* Style for card container */
 .problem-cards-container {
   width: 80%;
@@ -514,17 +549,65 @@ body{
 }
 
 /* Style for problem statement */
+.problem-statement{
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.problem-statement:hover{
+  background-color: #344a68;
+}
+
 .problem-statement h3 {
-  font-size: 18px;
+  font-size: 15px;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.problem-statement h3 span:first-child{
+  width: 97%;
+  text-align: justify;
+}
+
+.problem-statement h3 #problem-toggle-icon i{
+  font-size: 25px;
+  transition: all 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.problem-statement.toggle #problem-toggle-icon i{
+  transform: rotate(180deg);
 }
 
 /* Style for solution code */
-.solution {
+/* .solution {
   border-radius: 5px;
   overflow-x: auto;
   position: relative;
+} */
+
+/* Initially hide the solution div */
+.solution {
+  position: relative;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  box-shadow: inset 1px 1px 15px 3px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
 }
+
+/* Show the solution div */
+.solution.visible {
+  max-height: 500px; /* Set the maximum height as needed */
+}
+
 
 .solution .action-btn-container{
   position: absolute;
@@ -606,8 +689,16 @@ body{
     overflow-y: auto;
   }
 
+  .problem-statement h3 {
+    font-size: 13px;
+  }
+
   .problem-cards-container {
     width: 100%;
+  }
+
+  .organise-btn-container button span{
+    display: none;
   }
 }
 

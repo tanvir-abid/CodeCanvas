@@ -311,6 +311,18 @@ function createMainElements(data) {
   const problemContainer = document.createElement('div');
   problemContainer.classList.add('problems-container');
 
+  const organiseBtnContainer = document.createElement('div');
+  organiseBtnContainer.classList.add('organise-btn-container');
+  const showAllBtn = document.createElement('button');
+  showAllBtn.innerHTML = "<i class='bx bx-expand' ></i> <span>Exapnd All</span>";
+  const hideAllBtn = document.createElement('button');
+  hideAllBtn.innerHTML = "<i class='bx bx-collapse' ></i> <span>Hide All</span>";
+  organiseBtnContainer.appendChild(showAllBtn);
+  organiseBtnContainer.appendChild(hideAllBtn);
+  problemContainer.appendChild(organiseBtnContainer);
+
+  const problemContents = document.createElement('div');
+
   if(window.innerWidth <= 768){
     categoryDiv.classList.add('disappear');
 
@@ -403,9 +415,9 @@ function createMainElements(data) {
 
 
       const filteredData = data.filter(obj => obj.category === category);
-      problemContainer.innerHTML = '';
+      problemContents.innerHTML = '';
       let cardsDiv = populateProblemsContainer(filteredData);
-      problemContainer.appendChild(cardsDiv);
+      problemContents.appendChild(cardsDiv);
     });
     if (ul.children.length === 0) {
       li.classList.add('selected');
@@ -441,8 +453,33 @@ function createMainElements(data) {
     } else {
       megaDiv.classList.add('active');
     }
-  })
+  });
+
+  showAllBtn.addEventListener('click', function() {
+    const problemHeaders = document.querySelectorAll('.problem-statement');
+    problemHeaders.forEach((problemHeader,index) => {
+      setTimeout(() => {
+        if (!problemHeader.classList.contains('toggle')) {
+          problemHeader.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Scroll to the problem header
+        problemHeader.click();
+        }
+      }, index * 500);
+    });
+  });
+
+  hideAllBtn.addEventListener('click', function() {
+    const problemHeaders = document.querySelectorAll('.problem-statement');
+    problemHeaders.forEach((problemHeader, index) => {
+      setTimeout(() => {
+        if(problemHeader.classList.contains('toggle')){
+          problemHeader.click();
+        }
+      }, index*500);
+    });
+  });
   //----------------------------//
+  problemContainer.appendChild(problemContents);
+
   mainContainer.appendChild(categoryDiv);
   mainContainer.appendChild(problemContainer);
 
@@ -463,10 +500,19 @@ function populateProblemsContainer(data) {
     // Create problem-statement div with problem parameter in h3 tag
     const problemStatementDiv = document.createElement('div');
     problemStatementDiv.classList.add('problem-statement');
-    
-    const problemText = problemObj.problem.replace(/\n/g, '<br>'); // Replace '\n' with '<br>'
+
+    const problemText = problemObj.problem.replace(/\n/g, '<br>'); 
     const problemHeading = document.createElement('h3');
-    problemHeading.innerHTML = `${index + 1}. ${problemText}`; // Use innerHTML to render '<br>' tags
+
+    const problemTextSpan = document.createElement('span');
+    problemTextSpan.innerHTML = `${index + 1}. ${problemText}`; 
+    problemHeading.appendChild(problemTextSpan);
+
+    const problemToggleSpan = document.createElement('span');
+    problemToggleSpan.id = "problem-toggle-icon";
+    problemToggleSpan.innerHTML = "<i class='bx bxs-chevron-down'></i>";
+    problemHeading.appendChild(problemToggleSpan);
+
     problemStatementDiv.appendChild(problemHeading);
     
 
@@ -474,6 +520,14 @@ function populateProblemsContainer(data) {
     const solutionDiv = document.createElement('div');
     solutionDiv.classList.add('solution');
 
+    problemStatementDiv.addEventListener('click', function() {
+      problemStatementDiv.classList.toggle('toggle');
+      solutionDiv.classList.toggle('visible');
+    });
+
+    if(index === 0){
+      problemStatementDiv.click();
+    }
     const codeActionBtnContainer = document.createElement('div');
     codeActionBtnContainer.className = 'action-btn-container';
 
