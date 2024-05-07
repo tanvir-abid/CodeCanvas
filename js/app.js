@@ -1,122 +1,35 @@
-const metaData = {
-  title: "Coding Problems and Solutions",
-  description: "Explore javascript practice problems, which are frequently asked in job interviews, and my solutions with interactive challenges and code examples. Practice JavaScript, HTML/CSS, and algorithms for technical interviews and software engineering tasks. Enjoy a user-friendly interface with features like code copying functionality and smooth scrolling.",
-  keywords: "Coding problems, JavaScript solutions, Programming challenges, Code examples, Web development tasks, Algorithm practice",
-  author: "Tanvir Abid",
-  image: "https://i.postimg.cc/fyk91H3z/Code-Canvas.png",
-  url: "https://tanvir-abid.github.io/Portfolio/"
-};
-
-function generateMetaTags(metaData) {
-  const head = document.head;
-
-  // Create and append meta tags for title, description, keywords, author
-  // const metaTitle = document.createElement('title');
-  // metaTitle.textContent = metaData.title;
-  // head.appendChild(metaTitle);
-
-  const metaDesc = document.createElement('meta');
-  metaDesc.setAttribute('name', 'description');
-  metaDesc.setAttribute('content', metaData.description);
-  head.appendChild(metaDesc);
-
-  const metaKeywords = document.createElement('meta');
-  metaKeywords.setAttribute('name', 'keywords');
-  metaKeywords.setAttribute('content', metaData.keywords);
-  head.appendChild(metaKeywords);
-
-  const metaAuthor = document.createElement('meta');
-  metaAuthor.setAttribute('name', 'author');
-  metaAuthor.setAttribute('content', metaData.author);
-  head.appendChild(metaAuthor);
-
-  // Create and append meta tags for Open Graph (Facebook) and Twitter
-  const metaOGTitle = document.createElement('meta');
-  metaOGTitle.setAttribute('property', 'og:title');
-  metaOGTitle.setAttribute('content', metaData.title);
-  head.appendChild(metaOGTitle);
-
-  const metaOGDesc = document.createElement('meta');
-  metaOGDesc.setAttribute('property', 'og:description');
-  metaOGDesc.setAttribute('content', metaData.description);
-  head.appendChild(metaOGDesc);
-
-  const metaOGType = document.createElement('meta');
-  metaOGType.setAttribute('property', 'og:type');
-  metaOGType.setAttribute('content', 'website');
-  head.appendChild(metaOGType);
-
-  const metaOGImage = document.createElement('meta');
-  metaOGImage.setAttribute('property', 'og:image');
-  metaOGImage.setAttribute('content', metaData.image);
-  head.appendChild(metaOGImage);
-
-  const metaOGUrl = document.createElement('meta');
-  metaOGUrl.setAttribute('property', 'og:url');
-  metaOGUrl.setAttribute('content', metaData.url);
-  head.appendChild(metaOGUrl);
-
-  const metaTwitterCard = document.createElement('meta');
-  metaTwitterCard.setAttribute('name', 'twitter:card');
-  metaTwitterCard.setAttribute('content', 'summary_large_image');
-  head.appendChild(metaTwitterCard);
-
-  const metaTwitterTitle = document.createElement('meta');
-  metaTwitterTitle.setAttribute('name', 'twitter:title');
-  metaTwitterTitle.setAttribute('content', metaData.title);
-  head.appendChild(metaTwitterTitle);
-
-  const metaTwitterDesc = document.createElement('meta');
-  metaTwitterDesc.setAttribute('name', 'twitter:description');
-  metaTwitterDesc.setAttribute('content', metaData.description);
-  head.appendChild(metaTwitterDesc);
-
-  const metaTwitterImage = document.createElement('meta');
-  metaTwitterImage.setAttribute('name', 'twitter:image');
-  metaTwitterImage.setAttribute('content', metaData.image);
-  head.appendChild(metaTwitterImage);
-
-  const metaTwitterUrl = document.createElement('meta');
-  metaTwitterUrl.setAttribute('name', 'twitter:url');
-  metaTwitterUrl.setAttribute('content', metaData.url);
-  head.appendChild(metaTwitterUrl);
-}
-
-// Call the generateMetaTags function when the page loads
 document.addEventListener('DOMContentLoaded', function() {
-  generateMetaTags(metaData);
-
   // Create the page-loading-container div
-const pageLoadingContainer = document.createElement('div');
-pageLoadingContainer.classList.add('page-loading-container');
+  const pageLoadingContainer = document.createElement('div');
+  pageLoadingContainer.classList.add('page-loading-container');
 
-const iconsContainer = document.createElement('div');
-iconsContainer.classList.add('icons-container')
+  const iconsContainer = document.createElement('div');
+  iconsContainer.classList.add('icons-container')
 
-// Create the three spans
-const span1 = document.createElement('span');
-span1.textContent = '<';
-const span2 = document.createElement('span');
-span2.textContent = '/';
-const span3 = document.createElement('span');
-span3.textContent = '>';
+  // Create the three spans
+  const span1 = document.createElement('span');
+  span1.textContent = '<';
+  const span2 = document.createElement('span');
+  span2.textContent = '/';
+  const span3 = document.createElement('span');
+  span3.textContent = '>';
 
-// Append spans to the page-loading-container div
-iconsContainer.appendChild(span1);
-iconsContainer.appendChild(span2);
-iconsContainer.appendChild(span3);
-pageLoadingContainer.appendChild(iconsContainer);
-// Append the page-loading-container div to the document body or another desired location
-document.body.appendChild(pageLoadingContainer);
+  // Append spans to the page-loading-container div
+  iconsContainer.appendChild(span1);
+  iconsContainer.appendChild(span2);
+  iconsContainer.appendChild(span3);
+  pageLoadingContainer.appendChild(iconsContainer);
+  // Append the page-loading-container div to the document body or another desired location
+  document.body.appendChild(pageLoadingContainer);
 
-setTimeout(() => {
-  pageLoadingContainer.classList.add('change');
   setTimeout(() => {
-    pageLoadingContainer.remove();
+    pageLoadingContainer.classList.add('change');
+    setTimeout(() => {
+      pageLoadingContainer.remove();
 
-    callNavAndMainElementFunction();
-  }, 500);
-}, 2000);
+      callNavAndMainElementFunction();
+    }, 500);
+  }, 2000);
 
 });
 
