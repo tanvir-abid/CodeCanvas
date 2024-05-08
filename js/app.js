@@ -711,7 +711,7 @@ function createCodeModal() {
   const codePenIframe = document.createElement('iframe');
   codePenIframe.src = 'https://www.programiz.com/javascript/online-compiler/';
   codePenIframe.style.width = '100%';
-  codePenIframe.style.height = '100%'; // Adjust height as needed
+  codePenIframe.style.height = '70vh'; // Adjust height as needed
   modalBody.appendChild(codePenIframe);
 
   const closeBtn = document.createElement('span')
