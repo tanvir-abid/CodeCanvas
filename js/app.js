@@ -53,6 +53,36 @@ function callNavAndMainElementFunction(){
 
   // Call the function to create the button
   createScrollToTopButton();
+
+  const creditDiv = document.createElement('div');
+  creditDiv.classList.add('credit');
+
+  const creditContent = document.createElement('p');
+  creditContent.innerHTML = `Khondoker Abid Hasan Tanvir`;
+  creditDiv.appendChild(creditContent);
+
+  const creditRight = document.createElement('p');
+  creditRight.innerHTML = `© ${new Date().getFullYear()} All Rights Reserved`;
+  creditDiv.appendChild(creditRight);
+  // Append the credit div to the body or another desired location
+  setTimeout(() => {
+    container.appendChild(creditDiv);
+  }, 1000);
+
+  creditContent.addEventListener('click', ()=>{
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' 
+    });
+
+    let megaDiv = document.querySelector('.mega-div');
+    if (megaDiv.classList.contains('active')) {
+      megaDiv.classList.remove('active');
+    } else {
+      megaDiv.classList.add('active');
+    }
+  });
+
 };
 
 //==============================//
@@ -433,33 +463,6 @@ function createMainElements(data) {
 
   categoryDiv.appendChild(ul);
 
-  const creditDiv = document.createElement('div');
-  creditDiv.classList.add('credit');
-
-  const creditContent = document.createElement('p');
-  creditContent.innerHTML = `Khondoker Abid Hasan Tanvir`;
-  creditDiv.appendChild(creditContent);
-
-  const creditRight = document.createElement('p');
-  creditRight.innerHTML = `© ${new Date().getFullYear()} All Rights Reserved`;
-  creditDiv.appendChild(creditRight);
-  // Append the credit div to the body or another desired location
-  categoryDiv.appendChild(creditDiv);
-
-  creditContent.addEventListener('click', ()=>{
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' 
-    });
-
-    let megaDiv = document.querySelector('.mega-div');
-    if (megaDiv.classList.contains('active')) {
-      megaDiv.classList.remove('active');
-    } else {
-      megaDiv.classList.add('active');
-    }
-  });
-
   showAllBtn.addEventListener('click', function() {
     const problemHeaders = document.querySelectorAll('.problem-statement');
     problemHeaders.forEach((problemHeader,index) => {
@@ -533,8 +536,29 @@ function populateProblemsContainer(data) {
     if(index === 0){
       problemStatementDiv.click();
     }
+
+    const solutionHeader = document.createElement('div');
+    solutionHeader.classList.add('solution-header');
+
+    const solutiontitleDiv = document.createElement('div');
+    solutiontitleDiv.className = 'solution-title-div';
+    solutiontitleDiv.innerHTML = `<i class='bx bxl-javascript'></i> <span>JavaScript</span>`;
+    solutionHeader.appendChild(solutiontitleDiv);
+
     const codeActionBtnContainer = document.createElement('div');
     codeActionBtnContainer.className = 'action-btn-container';
+
+    if(problemObj.source && problemObj.source !== ''){
+        // Create a new anchor element
+        const anchorTag = document.createElement('a');
+        anchorTag.className = 'source-link';
+        anchorTag.setAttribute('href', problemObj.source);
+        anchorTag.setAttribute('rel', 'nofollow');
+        anchorTag.setAttribute('target', '_blank');
+        anchorTag.setAttribute('title', 'Source link');
+        anchorTag.innerHTML = "<i class='bx bx-info-circle'></i>";
+        codeActionBtnContainer.appendChild(anchorTag);
+    }
 
     const feedbackSpan = document.createElement('span');
     feedbackSpan.className = 'feedbackBtn';
@@ -548,7 +572,9 @@ function populateProblemsContainer(data) {
     copySpan.className = 'copyBtn';
     copySpan.innerHTML = "<i class='bx bx-copy'></i>";
     codeActionBtnContainer.appendChild(copySpan);
-    solutionDiv.appendChild(codeActionBtnContainer);
+
+    solutionHeader.appendChild(codeActionBtnContainer);
+    solutionDiv.appendChild(solutionHeader);
 
     const preElement = document.createElement('pre');
     const codeElement = document.createElement('code');

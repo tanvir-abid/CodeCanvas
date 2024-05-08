@@ -468,11 +468,13 @@
   {
     "problem": "Count occurrences of all items in an array in JavaScript",
     "category": "Array",
+    "source": "https://www.w3resource.com/javascript-exercises/javascript-array-exercises.php",
     "solution": "// Function to count occurrences of all items in an array\nfunction countOccurrences(arr) {\n  return arr.reduce((acc, curr) => {\n    acc[curr] ? acc[curr]++ : (acc[curr] = 1);\n    return acc;\n  }, {});\n}\n\n// Example usage:\nconst array = [1, 2, 3, 2, 4, 1, 5, 2, 6, 1];\nconsole.log('Occurrences:', countOccurrences(array));"
   },
   {
     "problem": "Count Frequency of an Array Item in JavaScript",
     "category": "Array",
+    "source": "https://www.w3resource.com/javascript-exercises/javascript-array-exercises.php",
     "solution": "// Function to count frequency of an array item\nfunction countFrequency(arr, item) {\n  return arr.reduce((count, currentValue) => {\n    return currentValue === item ? count + 1 : count;\n  }, 0);\n}\n\n// Example usage:\nconst array = [1, 2, 3, 2, 4, 1, 5, 2, 6, 1];\nconst itemToCount = 2;\nconsole.log(`Frequency of ${itemToCount}:`, countFrequency(array, itemToCount));"
   },
   {

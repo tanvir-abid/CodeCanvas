@@ -489,26 +489,6 @@ body{
   background-color: #FF204E;
 }
 
-.category-container .credit{
-  display: inline-block;
-  font-size: 10px;
-  text-align: center;
-  width: 100%;
-  background-color: #27374D;
-  border-radius: 0 0 8px 8px;
-  padding: 8px 0;
-}
-
-.credit p:first-child{
-  margin-bottom: 2px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.credit p:first-child:hover{
-  text-decoration: underline;
-}
-
 /*==========================*/
 .organise-btn-container {
   margin-bottom: 10px;
@@ -608,7 +588,7 @@ body{
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
-  box-shadow: inset 1px 1px 15px 3px rgba(0, 0, 0, 0.6);
+  
   border-radius: 8px;
 }
 
@@ -637,34 +617,59 @@ body{
   background-color: #d7032e; 
 }
 
-.solution .action-btn-container{
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 11px;
-  padding: 5px;
-  cursor: pointer;
-
-  border-radius: 5px;
+.solution-header{
   display: flex;
   align-items: center;
-  flex-direction: column-reverse;
+  justify-content: space-between;
+  background-color: #222;
+}
+
+.solution-header .solution-title-div{
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
   gap: 2px;
 }
 
+.solution-header .solution-title-div i{
+  font-size: 20px;
+}
+
+.solution-header .solution-title-div span{
+  font-size: 14px;
+}
+
+.solution .action-btn-container{
+  font-size: 11px;
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.solution .action-btn-container .source-link,
 .solution .action-btn-container span{
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 3px;
   border-radius: 3px;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
+.solution .action-btn-container .source-link{
+  text-decoration: none;
+  color: #DDE6ED;
+}
+
+.solution .action-btn-container .source-link,
 .solution .action-btn-container span i{
   font-size: 20px;
 }
 
+.solution .action-btn-container .source-link:hover,
 .solution .action-btn-container span:hover{
   background-color: #324866;
   color: #fff;
@@ -674,13 +679,15 @@ body{
   margin: 0;
   position: relative;
   z-index: -1;
+  border-radius: 0;
+  box-shadow: inset 1px 1px 15px 3px rgba(0, 0, 0, 0.6);
 }
 
 .solution code {
   padding: 10px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 14px;
-  border-radius: 5px;
+  border-radius: 0px;
 }
 
 
@@ -1020,4 +1027,27 @@ input::placeholder {
       width: 95%;
       order: 1;
   }
+}
+
+.credit{
+  display: flex;
+  font-size: 10px;
+  text-align: center;
+  width: 100%;
+  background-color: #203046;
+  border-radius: 0 0 8px 8px;
+  padding: 8px 0;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.credit p:first-child{
+  margin-bottom: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.credit p:first-child:hover{
+  text-decoration: underline;
 }
